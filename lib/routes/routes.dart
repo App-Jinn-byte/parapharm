@@ -1,7 +1,7 @@
 import 'package:parapharm/screens/splash.dart';
 
 class Routes {
-  static const String splash = '/splash';
+  static const String splash = '/';
   static const String signup1 = '/signup1';
   static const String signupvehicle = "/signupvehicle";
   static const String signup3 = '/signup3';
