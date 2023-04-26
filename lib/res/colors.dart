@@ -15,7 +15,10 @@ Map<int, Color> colorCodes = {
 
 class AppColors{
   static final appTheme = Color.fromRGBO(120, 149, 64, 1);
-  static final appBackground = Color.fromRGBO(223, 237, 239, 1);
+  static final appBackground = Color.fromRGBO(252, 252, 252, 1);
+  static final blackTextColor = Color.fromRGBO(73, 73, 73, 1);
+  static final textFieldBorderColor = Color.fromRGBO(226, 226, 226, 1);
+  static final hintTextColor = Color.fromRGBO(178, 178, 178, 1);
   static final buttonBlue = Color.fromRGBO(19, 31, 84, 1);
   static final whiteColor = Color.fromRGBO(248, 250, 254, 1);
   static const transparentColor = Color.fromRGBO(255, 255, 255, 0.0);
@@ -50,12 +53,11 @@ class AppColors{
   static final borderColor = Color.fromRGBO(0, 0, 0, 0.08);
   static final borderGreyColor = Color.fromRGBO(240, 240, 240, 1);
   static final greyTextColor = Color.fromRGBO(252, 252, 252, 0.7);
+  static final darkGreyTextColor = Color.fromRGBO(124, 124, 124, 1);
   static final blueBorderColor = Color.fromRGBO(0, 63, 154, 1);
-  static final hinTextColor = Color.fromRGBO(81, 92, 111, 1);
   static const divColor = Color.fromRGBO(0, 63, 154, 1);
   static const dotColor = Color.fromRGBO(0, 0, 0, 0.3);
   static const nameColor = Color.fromRGBO(35, 40, 48, 1);
-  static const textFieldBorderColor = Color.fromRGBO(36, 126, 255, 1);
 
 
 

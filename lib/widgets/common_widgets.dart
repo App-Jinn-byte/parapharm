@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:parapharm/main.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
 import 'package:parapharm/widgets/my_text.dart';
+import 'package:parapharm/widgets/my_text_enums.dart';
 
 class CommonWidgets {
 
@@ -180,7 +182,6 @@ class CommonWidgets {
     return Container(
       width: width ?? sizes!.widthRatio * 320,
       height: height ?? sizes!.heightRatio * 45,
-      margin: EdgeInsets.symmetric(horizontal: sizes!.pagePadding),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(7)),
         color: AppColors.buttonColor,
@@ -198,7 +199,7 @@ class CommonWidgets {
       ),
     );
   }
-  static Widget mainTextButton(String text,{required VoidCallback onPress, Color ?color}) {
+  static Widget mainTextButton(String text,{required VoidCallback onPress, Color ?color, bool? underline}) {
     return TextButton(
       onPressed: () {
         onPress();
@@ -208,7 +209,8 @@ class CommonWidgets {
         text,
         shadow: false,
         color: AppColors.buttonColor,
-        underline: true,
+        underline: underline ?? false,
+        arialFont: true,
       ),
     );
   }
@@ -216,7 +218,6 @@ class CommonWidgets {
     return Container(
       width: width ?? sizes!.widthRatio * 320,
       height: height ?? sizes!.heightRatio * 45,
-      margin: EdgeInsets.symmetric(horizontal: sizes!.pagePadding),
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColors.buttonColor,
@@ -384,61 +385,115 @@ class CommonWidgets {
 
   //
   static Widget customTextField(
-      {required String labeltext,
-      required String hintext,
+      {
+      required String hintText,
       @required TextEditingController? controller,
-      required TextInputType keyboardType}) {
+      required TextInputType keyboardType, double ?width, double ?height,}) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 25),
-
-      height: 60 * getHeightRatio(),
+      height: height?? 50 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
-        border: Border.all(color: Colors.white, width: 1),
-        borderRadius: BorderRadius.circular(27),
-        boxShadow: const [
-          BoxShadow(
-            color: Color.fromRGBO(93, 93, 93, 0.08),
-            blurRadius: 32,
-            offset: Offset(15, 15),
-          ),
-        ],
+        border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
+        borderRadius: BorderRadius.circular(7),
       ),
       child: TextFormField(
         autofocus: false,
         controller: controller,
         keyboardType: keyboardType,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 15,right:15,top: 10, bottom: 13),
-
+          contentPadding: EdgeInsets.only(left: 15,right:15,top: 13, bottom: 13),
           isDense: true,
           disabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Colors.white,
+            borderSide:  BorderSide(
+              color: AppColors.textFieldBorderColor,
               width: 1.0,
             ),
-            borderRadius: BorderRadius.circular(27),
+            borderRadius: BorderRadius.circular(7),
           ),
           border: InputBorder.none,
-          labelText: labeltext,
-          floatingLabelBehavior: FloatingLabelBehavior.always,
-          labelStyle: TextStyle(
-              fontFamily: Assets.robotoMedium,
-              letterSpacing: 1.5,
-              color: const Color.fromRGBO(81, 92, 111, .50),
-              fontSize: 15.5 * getFontRatio(),
-              fontWeight: FontWeight.bold),
-          hintText: hintext,
-          hintStyle: TextStyle(
-              height: 4.0,
-              fontFamily: Assets.robotoRegular,
-              color: const Color.fromRGBO(81, 92, 111, 1),
-              fontSize: 15 * getFontRatio(),
-              fontWeight: FontWeight.w500),
+          hintText: hintText,
+          hintStyle: _buildTextStyle(arialFont: true, underline: false,
+              color: AppColors.hintTextColor, fontSize: MyTextSize.XXXL,
+          fontWeight: FontWeight.normal),
         ),
       ),
     );
   }
+  static Widget passwordTextField(
+      {
+        bool ?showPassword,
+      required String hintText,
+      required VoidCallback onClick,
+      @required TextEditingController? controller,
+      required TextInputType keyboardType, double ?width, double ?height,}) {
+    return Container(
+      height: height?? 50 * getHeightRatio(),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
+        borderRadius: BorderRadius.circular(7),
+      ),
+      child: TextFormField(
+        autofocus: false,
+        controller: controller,
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(left: 15,right:15,top: 13, bottom: 13),
+          isDense: true,
+          disabledBorder: OutlineInputBorder(
+            borderSide:  BorderSide(
+              color: AppColors.textFieldBorderColor,
+              width: 1.0,
+            ),
+            borderRadius: BorderRadius.circular(7),
+          ),
+          border: InputBorder.none,
+          hintText: hintText,
+          suffixIcon: GestureDetector(
+            onTap: onClick,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getWidthRatio() * 10,
+                  vertical: getHeightRatio() * 5),
+              child: showPassword??false?Icon(Icons.visibility_off, color: AppColors.buttonBlue,size: sizes!.width*0.055):Icon(Icons.remove_red_eye, color: AppColors.lightGrey,size: sizes!.width*0.055,),
+              // child: Image.asset(
+              //   hidePassword ? Assets.eyeIcon : Assets.visibleIcon,
+              //   height: sizes!.width*0.001,
+              //   // cacheHeight: 18,
+              //   width: sizes!.width*0.001,
+              //   // cacheWidth: 18,
+              // ),
+            ),
+          ),
+          hintStyle: _buildTextStyle(arialFont: true, underline: false,
+              color: AppColors.hintTextColor, fontSize: MyTextSize.XXXL,
+          fontWeight: FontWeight.normal),
+        ),
+      ),
+    );
+  }
+
+  static TextStyle _buildTextStyle({
+    bool? arialFont,
+    bool? underline,
+    Color? color,
+    double? fontSize,
+    FontWeight ?fontWeight,
+  }) {
+    Function googleFontBuilder = GoogleFonts.nunito;
+    if (arialFont??false) googleFontBuilder = GoogleFonts.lato;
+
+    return googleFontBuilder(
+      color: color,
+      fontSize: myFontRatio *(fontSize??13.0),
+      fontWeight: fontWeight,
+      fontStyle: FontStyle.normal,
+      decoration: underline??false ? TextDecoration.underline : null,
+      backgroundColor: AppColors.transparentColor,
+      // shadows: _textShadows(),
+    );
+  }
+
   static Widget customTextFieldForDialogTextField(
       {required String labeltext,
       required String hintext,
@@ -545,7 +600,7 @@ class CommonWidgets {
               color: const Color.fromRGBO(81, 92, 111, .50),
               fontSize: 15.5 * getFontRatio(),
               fontWeight: FontWeight.bold),
-          hintText: hintext,
+            hintText: hintext,
           hintStyle: TextStyle(
               height: 4.0,
               fontFamily: Assets.robotoRegular,

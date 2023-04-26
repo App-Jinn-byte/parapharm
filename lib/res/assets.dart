@@ -19,6 +19,7 @@ class Assets {
   static const String robotoLight = "Roboto-Light";
   static const String robotoMedium = "Roboto-Medium";
   static const String robotoRegular = "Roboto-Regular";
+  static const String nunitoRegular = "Nunito-Regular";
 
   // images
   static const String onboardingBg = "assets/images/onboarding_bg.png";
@@ -26,6 +27,7 @@ class Assets {
 
   // icons
   static const String appLogo = "assets/images/logo.png";
+  static const String appColorLogo = "assets/images/color_logo.png";
   static const String logoText = "assets/images/logo_text.png";
   static const String logoinaletr = "assets/png/logalert.png";
 

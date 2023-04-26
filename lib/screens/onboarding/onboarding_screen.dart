@@ -16,7 +16,7 @@ class OnboardingScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: sizes!.width*0.05),
+          padding: EdgeInsets.symmetric(horizontal: sizes!.width*0.08),
           height: sizes?.height,
           width: sizes?.width,
           decoration: BoxDecoration(
@@ -31,7 +31,7 @@ class OnboardingScreen extends StatelessWidget {
 
               Align(
                   alignment: Alignment.centerRight,
-                  child: CommonWidgets.mainTextButton('Skip>', onPress: () {},)),
+                  child: CommonWidgets.mainTextButton('Skip>', onPress: () {},underline: true)),
               Spacer(),
               Image.asset(Assets.appLogo),
               SizedBox(height: sizes!.height*0.03,),
@@ -43,10 +43,8 @@ class OnboardingScreen extends StatelessWidget {
               SizedBox(height: sizes!.height*0.02,),
               CommonWidgets.mainButtonWithBorder("Create Account", onPress: (){}, width: sizes!.width*0.85, height: sizes!.height*0.07,color: AppColors.transparentColor),
               SizedBox(height: sizes!.height*0.05,),
-
             ],
           ),
-
         ),
       ),
     );

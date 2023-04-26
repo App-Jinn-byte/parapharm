@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:parapharm/providers/multi_provider.dart';
 import 'package:parapharm/routes/routes.dart';
+import 'package:parapharm/screens/login_screen/login.dart';
 import 'package:parapharm/screens/onboarding/onboarding_screen.dart';
 import 'package:parapharm/screens/splash.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
 
     return const MaterialApp(
           debugShowCheckedModeBanner: true,
-          home: OnboardingScreen(),
+          home: LoginScreen(),
           title: 'Parapharm'
     );
   }
