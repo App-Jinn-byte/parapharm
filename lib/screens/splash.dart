@@ -20,11 +20,8 @@ class Splash extends StatelessWidget {
           Image.asset(Assets.appLogo),
           SizedBox(height: sizes!.height*0.1,),
           Image.asset(Assets.logoText),
-
         ],
       ),
-
-
     );
   }
 }

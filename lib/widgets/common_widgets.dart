@@ -1,10 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/widgets/my_text.dart';
 
 class CommonWidgets {
 
@@ -174,18 +176,54 @@ class CommonWidgets {
     );
   }
 
-  static Widget mainButton(String text, { required VoidCallback onPress}) {
+  static Widget mainButton(String text,{required VoidCallback onPress, double ?width, double ?height, Color ?color}) {
     return Container(
-      width: sizes!.widthRatio * 320,
-      height: sizes!.heightRatio * 45,
+      width: width ?? sizes!.widthRatio * 320,
+      height: height ?? sizes!.heightRatio * 45,
+      margin: EdgeInsets.symmetric(horizontal: sizes!.pagePadding),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(7)),
+        color: AppColors.buttonColor,
+      ),
+      child: TextButton(
+        onPressed: () {
+          onPress();
+        },
+        child:
+        MyText.XXXL(
+          text,
+          shadow: false,
+          color: AppColors.btnfeildColor,
+        ),
+      ),
+    );
+  }
+  static Widget mainTextButton(String text,{required VoidCallback onPress, Color ?color}) {
+    return TextButton(
+      onPressed: () {
+        onPress();
+      },
+      child:
+      MyText.XXXL(
+        text,
+        shadow: false,
+        color: AppColors.buttonColor,
+        underline: true,
+      ),
+    );
+  }
+  static Widget mainButtonWithBorder(String text,{ required VoidCallback onPress, double ?width, double ?height, Color ?color}) {
+    return Container(
+      width: width ?? sizes!.widthRatio * 320,
+      height: height ?? sizes!.heightRatio * 45,
       margin: EdgeInsets.symmetric(horizontal: sizes!.pagePadding),
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.btnfeildColor,
+          color: AppColors.buttonColor,
           width: 1,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(30)),
-        color: AppColors.buttonColor,
+        borderRadius: const BorderRadius.all(Radius.circular(7)),
+        color: color??AppColors.buttonColor,
       ),
       child: TextButton(
         onPressed: () {
@@ -195,13 +233,11 @@ class CommonWidgets {
           //   onPress();
           // }
         },
-        child: Text(
+        child:
+        MyText.XXXL(
           text,
-          style: TextStyle(
-            color: AppColors.btnfeildColor,
-            fontSize: 13 * getFontRatio(),
-            fontFamily: Assets.robotoBold,
-          ),
+          shadow: false,
+          color: AppColors.btnfeildColor,
         ),
       ),
     );

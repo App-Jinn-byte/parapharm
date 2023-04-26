@@ -21,13 +21,13 @@ class Assets {
   static const String robotoRegular = "Roboto-Regular";
 
   // images
-  static const String doodleBackgroundImage = "assets/png/background_img.png";
+  static const String onboardingBg = "assets/images/onboarding_bg.png";
   static const String splash1Image = "assets/png/logo_splash1.png";
 
   // icons
   static const String appLogo = "assets/images/logo.png";
   static const String logoText = "assets/images/logo_text.png";
-    static const String logoinaletr = "assets/png/logalert.png";
+  static const String logoinaletr = "assets/png/logalert.png";
 
   static const String uploadIcon = "assets/png/upload_icon.png";
   static const String checkIcon = "assets/images/checkIcon.png";

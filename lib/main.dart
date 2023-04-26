@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:parapharm/providers/multi_provider.dart';
 import 'package:parapharm/routes/routes.dart';
+import 'package:parapharm/screens/onboarding/onboarding_screen.dart';
 import 'package:parapharm/screens/splash.dart';
 import 'package:provider/provider.dart';
 
+late double myFontRatio;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,10 +15,7 @@ void main() async {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown
   ]).then((_) {
-    // MultiProvider(
-    //   providers: [],
-      child: const MyApp();
-    // );
+    runApp(MyApp());
   });
 }
 
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
 
     return const MaterialApp(
           debugShowCheckedModeBanner: true,
-          home: Splash(),
+          home: OnboardingScreen(),
           title: 'Parapharm'
     );
   }
