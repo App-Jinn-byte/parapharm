@@ -13,15 +13,18 @@ Map<int, Color> colorCodes = {
   900: Color.fromRGBO(147, 205, 72, 1),
 };
 
-class AppColors {
+class AppColors{
   static final appTheme = Color.fromRGBO(120, 149, 64, 1);
-  static final appBackground = Color.fromRGBO(223, 237, 239, 1);
+  static final appBackground = Color.fromRGBO(252, 252, 252, 1);
+  static final blackTextColor = Color.fromRGBO(73, 73, 73, 1);
+  static final textFieldBorderColor = Color.fromRGBO(226, 226, 226, 1);
+  static final hintTextColor = Color.fromRGBO(178, 178, 178, 1);
   static final buttonBlue = Color.fromRGBO(19, 31, 84, 1);
   static final whiteColor = Color.fromRGBO(248, 250, 254, 1);
   static const transparentColor = Color.fromRGBO(255, 255, 255, 0.0);
   static final signupColor = Color.fromRGBO(35, 40, 48, 1);
   static final shadowColor = Color.fromRGBO(93, 93, 93, 0.14);
-  static final buttonColor = Color.fromRGBO(0, 63, 154, 1);
+  static final buttonColor = Color.fromRGBO(120, 149, 64, 1);
   static final arrowColor = Color.fromRGBO(174, 184, 196, 1);
   static final greenColor = Color.fromRGBO(24, 175, 100, 1);
   static final dialogueBoxColor = Color.fromRGBO(246, 246, 246, 1);
@@ -38,6 +41,8 @@ class AppColors {
   static final colorGreyLight = "#CFD8DC";
   static final colorGreyWhite = "#ECEFF1";
 
+
+
   // static final buttonBlue = "#131F54";
   // static final buttonBlueShadow = "#3C4C92D9";
 
@@ -47,12 +52,12 @@ class AppColors {
   static const admintxtColor = Color.fromRGBO(49, 49, 49, 1);
   static final borderColor = Color.fromRGBO(0, 0, 0, 0.08);
   static final borderGreyColor = Color.fromRGBO(240, 240, 240, 1);
+  static final greyTextColor = Color.fromRGBO(252, 252, 252, 0.7);
+  static final darkGreyTextColor = Color.fromRGBO(124, 124, 124, 1);
   static final blueBorderColor = Color.fromRGBO(0, 63, 154, 1);
-  static final hinTextColor = Color.fromRGBO(81, 92, 111, 1);
   static const divColor = Color.fromRGBO(0, 63, 154, 1);
   static const dotColor = Color.fromRGBO(0, 0, 0, 0.3);
   static const nameColor = Color.fromRGBO(35, 40, 48, 1);
-  static const textFieldBorderColor = Color.fromRGBO(36, 126, 255, 1);
 
   // shadow colors
   static const cardShadow = Color.fromRGBO(0, 0, 0, 0.03);

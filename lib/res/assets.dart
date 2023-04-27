@@ -19,15 +19,17 @@ class Assets {
   static const String robotoLight = "Roboto-Light";
   static const String robotoMedium = "Roboto-Medium";
   static const String robotoRegular = "Roboto-Regular";
+  static const String nunitoRegular = "Nunito-Regular";
 
   // images
-  static const String doodleBackgroundImage = "assets/png/background_img.png";
+  static const String onboardingBg = "assets/images/onboarding_bg.png";
   static const String splash1Image = "assets/png/logo_splash1.png";
 
   // icons
   static const String appLogo = "assets/images/logo.png";
+  static const String appColorLogo = "assets/images/color_logo.png";
   static const String logoText = "assets/images/logo_text.png";
-  static const String logoinaletr = "assets/png/logalert.png";
+    static const String logoinaletr = "assets/png/logalert.png";
 
   static const String homeIconSelected = "assets/images/home_icon.png";
   static const String homeIconUnselected =
