@@ -18,13 +18,12 @@ class Splash extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(Assets.appLogo),
-          SizedBox(height: sizes!.height*0.1,),
+          SizedBox(
+            height: sizes!.height * 0.1,
+          ),
           Image.asset(Assets.logoText),
-
         ],
       ),
-
-
     );
   }
 }

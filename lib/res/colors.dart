@@ -13,7 +13,7 @@ Map<int, Color> colorCodes = {
   900: Color.fromRGBO(147, 205, 72, 1),
 };
 
-class AppColors{
+class AppColors {
   static final appTheme = Color.fromRGBO(120, 149, 64, 1);
   static final appBackground = Color.fromRGBO(223, 237, 239, 1);
   static final buttonBlue = Color.fromRGBO(19, 31, 84, 1);
@@ -21,7 +21,7 @@ class AppColors{
   static const transparentColor = Color.fromRGBO(255, 255, 255, 0.0);
   static final signupColor = Color.fromRGBO(35, 40, 48, 1);
   static final shadowColor = Color.fromRGBO(93, 93, 93, 0.14);
-      static final buttonColor = Color.fromRGBO(0, 63, 154, 1);
+  static final buttonColor = Color.fromRGBO(0, 63, 154, 1);
   static final arrowColor = Color.fromRGBO(174, 184, 196, 1);
   static final greenColor = Color.fromRGBO(24, 175, 100, 1);
   static final dialogueBoxColor = Color.fromRGBO(246, 246, 246, 1);
@@ -37,8 +37,6 @@ class AppColors{
   static final colorWhite = "#ffebee";
   static final colorGreyLight = "#CFD8DC";
   static final colorGreyWhite = "#ECEFF1";
-
-
 
   // static final buttonBlue = "#131F54";
   // static final buttonBlueShadow = "#3C4C92D9";
@@ -56,8 +54,6 @@ class AppColors{
   static const nameColor = Color.fromRGBO(35, 40, 48, 1);
   static const textFieldBorderColor = Color.fromRGBO(36, 126, 255, 1);
 
-
-
   // shadow colors
   static const cardShadow = Color.fromRGBO(0, 0, 0, 0.03);
   static const cardShadow2 = Color.fromRGBO(35, 40, 48, 0.08);
@@ -68,9 +64,7 @@ class AppColors{
   static final Color greyColor = HexColor.fromHex("#515C6F");
   static final Color blackColor = HexColor.fromHex("#232830");
   static final Color backgroundColor = HexColor.fromHex("#F4F3F8");
-
 }
-
 
 extension HexColor on Color {
   /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
@@ -80,7 +74,6 @@ extension HexColor on Color {
     buffer.write(hexString.replaceFirst('#', ''));
     return Color(int.parse(buffer.toString(), radix: 16));
   }
-
 
   /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
   String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'

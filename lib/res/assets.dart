@@ -27,7 +27,24 @@ class Assets {
   // icons
   static const String appLogo = "assets/images/logo.png";
   static const String logoText = "assets/images/logo_text.png";
-    static const String logoinaletr = "assets/png/logalert.png";
+  static const String logoinaletr = "assets/png/logalert.png";
+
+  static const String homeIconSelected = "assets/images/home_icon.png";
+  static const String homeIconUnselected =
+      "assets/images/home_unselected_icon.png";
+  static const String searchIconUnselected =
+      "assets/images/search_unselected_icon.png";
+  static const String discountIconUnselected =
+      "assets/images/discount_selected_icon.png";
+  static const String accountIconSelected =
+      "assets/images/account_selected_icon.png";
+  static const String accountIconUnselected =
+      "assets/images/account_unselected_icon.png";
+  static const String blogIconUnselected =
+      "assets/images/blog_unselected_icon.png";
+  static const String hamburgerIcon = "assets/images/hamburger_icon.png";
+  static const String cartIcon = "assets/images/cart_icon.png";
+  static const String backArrowIcon = "assets/images/back_icon.png";
 
   static const String uploadIcon = "assets/png/upload_icon.png";
   static const String checkIcon = "assets/images/checkIcon.png";
@@ -36,7 +53,6 @@ class Assets {
   static const String infoIcon = "assets/png/info_icon.png";
   static const String menuIcon = "assets/png/Menu.png";
   static const String maintance = "assets/png/maintance.png";
-  static const String backArrow = "assets/png/back_arrow.png";
   static const String visibleIcon = "assets/png/ic_visible.png";
   static const String eyeIcon = "assets/png/eye_icon1.png";
   static const String chatIcon = "assets/png/chat_icon.png";

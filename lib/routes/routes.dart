@@ -1,3 +1,4 @@
+import 'package:parapharm/screens/home_screen_pages/bottom_navigation_screen/bottom_navigation_screen.dart';
 import 'package:parapharm/screens/splash.dart';
 
 class Routes {
@@ -7,9 +8,11 @@ class Routes {
   static const String signup3 = '/signup3';
   static const String login = '/login';
   static const String forgotPassword = '/forgotPassword';
+  static const String bottomNavigation = '/bottomNavigation';
 
   static final routes = {
     splash: (context) => const Splash(),
+    bottomNavigation: (context) => const BottomNavigationScreen()
     // signup1: (context) => const Signup1Screen(),
     // // signupvehicle: (context) => const SignUpVehicle(),
     // //signup3: (context) => const Signup3Screen(),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
@@ -7,13 +6,10 @@ import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
 
 class CommonWidgets {
-
-
   static Widget bottomSheet(
       {required BuildContext context,
       required Function? onCamera,
-      required Function? onGallery
-      }) {
+      required Function? onGallery}) {
     return Container(
       height: getHeight() * 0.15,
       width: MediaQuery.of(context).size.width,
@@ -64,7 +60,6 @@ class CommonWidgets {
       @required fontWeight,
       @required fontSize,
       @required alignment,
-
       required fontFamily,
       int? maxLines,
       String? textAlign}) {
@@ -78,52 +73,23 @@ class CommonWidgets {
       textAlign: textAlign == 'center' ? TextAlign.center : TextAlign.start,
       style: TextStyle(
         color: color,
-        fontSize: fontSize??getFontRatio() *14,
+        fontSize: fontSize ?? getFontRatio() * 14,
         fontFamily: fontFamily,
       ),
     );
   }
 
-  static Widget optionAppBar({String? title, var icon, Function? onOption}) {
-    return Container(
-      width: sizes?.width,
-      height: getHeight() * .1,
-      padding: EdgeInsets.symmetric(horizontal: getWidth() * 0.05),
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage(Assets.headerBackgroundImage), fit: BoxFit.fill),
-        // color: AppColors.blueColor,
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(15),
-          bottomRight: Radius.circular(15),
-        ),
-      ),
-      child: Row(
-        children: [
-          GestureDetector(
-              onTap: () {
-                if (onOption != null) {
-                  onOption.call();
-                }
-              },
-              child: Icon(icon, color: AppColors.whiteColor)),
-          SizedBox(width: getHeight() * 0.02),
-          SizedBox(
-            width: getWidth() * 0.55,
-            child: Text(
-              title ?? "",
-              style: TextStyle(
-                color: AppColors.whiteColor,
-                fontSize: sizes?.extraLargeFontSize,
-                fontFamily: Assets.robotoBold,
-              ),
-            ),
-          ),
-        ],
-      ),
+  static Widget customAppBar(
+      {required String title, var icon, Function? onOption}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset(Assets.hamburgerIcon),
+        Text(title),
+        Image.asset(Assets.cartIcon),
+      ],
     );
   }
-
 
   static Widget customNameTextField(
       {required placeHolder,
@@ -174,7 +140,7 @@ class CommonWidgets {
     );
   }
 
-  static Widget mainButton(String text, { required VoidCallback onPress}) {
+  static Widget mainButton(String text, {required VoidCallback onPress}) {
     return Container(
       width: sizes!.widthRatio * 320,
       height: sizes!.heightRatio * 45,
@@ -354,7 +320,6 @@ class CommonWidgets {
       required TextInputType keyboardType}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
-
       height: 60 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -373,8 +338,8 @@ class CommonWidgets {
         controller: controller,
         keyboardType: keyboardType,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 15,right:15,top: 10, bottom: 13),
-
+          contentPadding:
+              EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 13),
           isDense: true,
           disabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(
@@ -403,19 +368,19 @@ class CommonWidgets {
       ),
     );
   }
+
   static Widget customTextFieldForDialogTextField(
       {required String labeltext,
       required String hintext,
       @required TextEditingController? controller,
       required TextInputType keyboardType}) {
     return Container(
-      height:sizes!.height*0.20,
+      height: sizes!.height * 0.20,
       width: sizes!.width,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
         borderRadius: BorderRadius.circular(27),
-
         boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(93, 93, 93, 0.08),
@@ -427,7 +392,6 @@ class CommonWidgets {
       child: TextFormField(
         autofocus: false,
         maxLines: 60,
-
         controller: controller,
         keyboardType: keyboardType,
         decoration: InputDecoration(
@@ -435,10 +399,7 @@ class CommonWidgets {
               const EdgeInsets.only(left: 25, right: 25, top: 12, bottom: 8),
           isDense: true,
           disabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Colors.white,
-              width: 1.0
-            ),
+            borderSide: const BorderSide(color: Colors.white, width: 1.0),
             borderRadius: BorderRadius.circular(27),
           ),
           border: InputBorder.none,
@@ -470,7 +431,6 @@ class CommonWidgets {
       required TextInputType keyboardType}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
-
       height: 60 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -551,7 +511,7 @@ class CommonWidgets {
           obscureText: hidePassword,
           decoration: InputDecoration(
             contentPadding:
-            const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             isDense: true,
             disabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(
@@ -582,7 +542,14 @@ class CommonWidgets {
                 padding: EdgeInsets.symmetric(
                     horizontal: getWidthRatio() * 10,
                     vertical: getHeightRatio() * 5),
-                child: hidePassword?Icon(Icons.visibility_off, color: AppColors.buttonBlue,size: sizes!.width*0.055):Icon(Icons.remove_red_eye, color: AppColors.lightGrey,size: sizes!.width*0.055,),
+                child: hidePassword
+                    ? Icon(Icons.visibility_off,
+                        color: AppColors.buttonBlue, size: sizes!.width * 0.055)
+                    : Icon(
+                        Icons.remove_red_eye,
+                        color: AppColors.lightGrey,
+                        size: sizes!.width * 0.055,
+                      ),
                 // child: Image.asset(
                 //   hidePassword ? Assets.eyeIcon : Assets.visibleIcon,
                 //   height: sizes!.width*0.001,
@@ -652,7 +619,8 @@ class CommonWidgets {
             controller: controller,
             enabled: false,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(left: 15,right:15,top: 10, bottom: 16),
+              contentPadding:
+                  EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 16),
               focusedBorder: InputBorder.none,
               isDense: true,
               border: InputBorder.none,
@@ -724,5 +692,4 @@ class CommonWidgets {
       ),
     );
   }
-
 }
