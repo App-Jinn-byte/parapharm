@@ -35,18 +35,27 @@ class LoginScreen extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: MyText.XXL("Email address/Phone number", arialFont:true, shadow: false, color: AppColors.darkGreyTextColor,)),
               CommonWidgets.customTextField( hintText: 'Enter Email/Number', controller: emailOrNumberController, keyboardType: TextInputType.name),
-
               Align(
                   alignment: Alignment.centerLeft,
                   child: MyText.XXL("Password", arialFont:true, shadow: false, color: AppColors.darkGreyTextColor,)),
-              CommonWidgets.passwordTextField(hintText: 'Enter Password', controller: emailOrNumberController, keyboardType: TextInputType.name, onClick: (){} )
-,
+              CommonWidgets.passwordTextField(hintText: 'Enter Password', controller: emailOrNumberController, keyboardType: TextInputType.name, onClick: (){} ),
               SizedBox(height: sizes!.height*0.04,),
               CommonWidgets.mainButton("Login", onPress: (){}, width: sizes!.width, height: sizes!.height*0.07,),
               Align(
                   alignment: Alignment.centerRight,
                   child: CommonWidgets.mainTextButton("Forgot Password?", onPress: (){})),
+              Row(children: [
+                Expanded(child: Divider(color: AppColors.dividerColor,)),
+                Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: MyText.XXXL('Or',arialFont: true, color: AppColors.appTheme,shadow: false,),
+                ),
+                Expanded(child: Divider(color: AppColors.dividerColor,)),
+
+              ],),
+              CommonWidgets.mainButtonWithBorderAndIcon('Continue with Google', Assets.googleIcon, onPress:(){}, color: AppColors.transparentColor, textColor: AppColors.blackTextColor,buttonBorderColor:  AppColors.textFieldBorderColor),
               SizedBox(height: sizes!.height*0.02,),
+              CommonWidgets.mainButtonWithBorderAndIcon('Continue with Facebook',Assets.fbIcon, onPress:(){},color: AppColors.transparentColor, textColor: AppColors.blackTextColor, buttonBorderColor:  AppColors.textFieldBorderColor),
               SizedBox(height: sizes!.height*0.05,),
             ],
           ),

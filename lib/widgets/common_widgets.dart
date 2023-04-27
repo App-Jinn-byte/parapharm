@@ -243,6 +243,44 @@ class CommonWidgets {
       ),
     );
   }
+  static Widget mainButtonWithBorderAndIcon(String text, String iconPath,{ required VoidCallback onPress, double ?width, double ?height, Color ?color, Color? textColor, Color? buttonBorderColor}) {
+    return Container(
+      width: width ?? sizes!.widthRatio * 320,
+      height: height ?? sizes!.heightRatio * 45,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: buttonBorderColor??AppColors.buttonColor,
+          width: 1,
+        ),
+        borderRadius: const BorderRadius.all(Radius.circular(7)),
+        color: color??AppColors.buttonColor,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+
+        children: [
+          Image.asset(iconPath, height: sizes!.height*0.03, width: sizes!.height*0.03,),
+
+          TextButton(
+            onPressed: () {
+              onPress();
+
+              // if (onPress != null) {
+              //   onPress();
+              // }
+            },
+            child:
+            MyText.XXXL(
+              text,
+              shadow: false,
+              color: textColor??Colors.deepOrange,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   static Widget customImgTextField(
       {required placeHolder,

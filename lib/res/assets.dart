@@ -28,6 +28,8 @@ class Assets {
   // icons
   static const String appLogo = "assets/images/logo.png";
   static const String appColorLogo = "assets/images/color_logo.png";
+  static const String googleIcon = "assets/images/google_icon.png";
+  static const String fbIcon = "assets/images/fb_icon.png";
   static const String logoText = "assets/images/logo_text.png";
   static const String logoinaletr = "assets/png/logalert.png";
 

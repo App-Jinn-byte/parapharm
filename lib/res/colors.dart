@@ -16,6 +16,7 @@ Map<int, Color> colorCodes = {
 class AppColors{
   static final appTheme = Color.fromRGBO(120, 149, 64, 1);
   static final appBackground = Color.fromRGBO(252, 252, 252, 1);
+  static final dividerColor = Color.fromRGBO(203, 203, 203, 1);
   static final blackTextColor = Color.fromRGBO(73, 73, 73, 1);
   static final textFieldBorderColor = Color.fromRGBO(226, 226, 226, 1);
   static final hintTextColor = Color.fromRGBO(178, 178, 178, 1);
