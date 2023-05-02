@@ -1,4 +1,5 @@
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -191,7 +192,7 @@ class CommonWidgets {
           onPress();
         },
         child:
-        MyText.XXXL(
+        MyText.L(
           text,
           shadow: false,
           color: AppColors.btnfeildColor,
@@ -205,7 +206,7 @@ class CommonWidgets {
         onPress();
       },
       child:
-      MyText.XXXL(
+      MyText.M(
         text,
         shadow: false,
         color: AppColors.buttonColor,
@@ -271,7 +272,7 @@ class CommonWidgets {
               // }
             },
             child:
-            MyText.XXXL(
+            MyText.L(
               text,
               shadow: false,
               color: textColor??Colors.deepOrange,
@@ -426,7 +427,11 @@ class CommonWidgets {
       {
       required String hintText,
       @required TextEditingController? controller,
-      required TextInputType keyboardType, double ?width, double ?height,}) {
+      @required TextInputAction? textInputAction,
+      required TextInputType keyboardType, double ?width, double ?height,
+
+
+      }) {
     return Container(
       height: height?? 50 * getHeightRatio(),
       decoration: BoxDecoration(
@@ -438,6 +443,7 @@ class CommonWidgets {
         autofocus: false,
         controller: controller,
         keyboardType: keyboardType,
+        textInputAction: textInputAction??TextInputAction.done,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.only(left: 15,right:15,top: 13, bottom: 13),
           isDense: true,
@@ -451,8 +457,67 @@ class CommonWidgets {
           border: InputBorder.none,
           hintText: hintText,
           hintStyle: _buildTextStyle(arialFont: true, underline: false,
-              color: AppColors.hintTextColor, fontSize: MyTextSize.XXXL,
+              color: AppColors.hintTextColor, fontSize: MyTextSize.L,
           fontWeight: FontWeight.normal),
+        ),
+      ),
+    );
+  }
+
+
+
+  static Widget customTextFieldWithLabel(
+      {required String labeltext,
+        required String hintext,
+        @required TextEditingController? controller,
+        required TextInputType keyboardType}) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 25),
+
+      height: 60 * getHeightRatio(),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.white, width: 1),
+        borderRadius: BorderRadius.circular(27),
+        boxShadow: const [
+          BoxShadow(
+            color: Color.fromRGBO(93, 93, 93, 0.08),
+            blurRadius: 32,
+            offset: Offset(15, 15),
+          ),
+        ],
+      ),
+      child: TextFormField(
+        autofocus: false,
+        controller: controller,
+        keyboardType: keyboardType,
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(left: 15,right:15,top: 10, bottom: 13),
+
+          isDense: true,
+          disabledBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: Colors.white,
+              width: 1.0,
+            ),
+            borderRadius: BorderRadius.circular(27),
+          ),
+          border: InputBorder.none,
+          labelText: labeltext,
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          labelStyle: TextStyle(
+              fontFamily: Assets.robotoMedium,
+              letterSpacing: 1.5,
+              color: const Color.fromRGBO(81, 92, 111, .50),
+              fontSize: 15.5 * getFontRatio(),
+              fontWeight: FontWeight.bold),
+          hintText: hintext,
+          hintStyle: TextStyle(
+              height: 4.0,
+              fontFamily: Assets.robotoRegular,
+              color: const Color.fromRGBO(81, 92, 111, 1),
+              fontSize: 15 * getFontRatio(),
+              fontWeight: FontWeight.w500),
         ),
       ),
     );
@@ -504,7 +569,57 @@ class CommonWidgets {
             ),
           ),
           hintStyle: _buildTextStyle(arialFont: true, underline: false,
-              color: AppColors.hintTextColor, fontSize: MyTextSize.XXXL,
+              color: AppColors.hintTextColor, fontSize: MyTextSize.L,
+          fontWeight: FontWeight.normal),
+        ),
+      ),
+    );
+  }
+  static Widget dropDownTextField(
+      {
+        bool ?showPassword,
+      required String hintText,
+      required VoidCallback onClick,
+      @required TextEditingController? controller,
+      @required TextInputAction? textInputAction,
+      required TextInputType keyboardType, double ?width, double ?height,}) {
+    return Container(
+      height: height?? 50 * getHeightRatio(),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
+        borderRadius: BorderRadius.circular(7),
+      ),
+      child: TextFormField(
+        autofocus: false,
+        controller: controller,
+        keyboardType: keyboardType,
+        textInputAction: textInputAction??TextInputAction.done,
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(left: 15,right:15,top: 13, bottom: 13),
+          isDense: true,
+          disabledBorder: OutlineInputBorder(
+            borderSide:  BorderSide(
+              color: AppColors.textFieldBorderColor,
+              width: 1.0,
+            ),
+            borderRadius: BorderRadius.circular(7),
+          ),
+          border: InputBorder.none,
+          hintText: hintText,
+
+          suffixIcon: GestureDetector(
+            onTap: onClick,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: getWidthRatio() * 10,
+                  vertical: getHeightRatio() * 5),
+              child: Icon(Icons.keyboard_arrow_down_sharp, color: AppColors.lightGrey,size: sizes!.width*0.065),
+
+            ),
+          ),
+          hintStyle: _buildTextStyle(arialFont: true, underline: false,
+              color: AppColors.hintTextColor, fontSize: MyTextSize.L,
           fontWeight: FontWeight.normal),
         ),
       ),
@@ -523,7 +638,7 @@ class CommonWidgets {
 
     return googleFontBuilder(
       color: color,
-      fontSize: myFontRatio *(fontSize??13.0),
+      fontSize: fontSize,
       fontWeight: fontWeight,
       fontStyle: FontStyle.normal,
       decoration: underline??false ? TextDecoration.underline : null,
@@ -855,3 +970,51 @@ class CommonWidgets {
   }
 
 }
+class DifferentColorClickableText extends StatelessWidget {
+  const DifferentColorClickableText({Key? key, required this.onColorTextPressed, required this.text, required this.textButton}) : super(key: key);
+  final Function onColorTextPressed;
+  final String text;
+  final String textButton;
+
+  @override
+  Widget build(BuildContext context) {
+    TextStyle defaultStyle = _buildTextStyle(arialFont: true, color: AppColors.blackColorText, fontSize:MyTextSize.M );
+    TextStyle linkStyle = _buildTextStyle(color: AppColors.appTheme, fontSize: MyTextSize.M, arialFont: true);
+    return RichText(
+      text: TextSpan(
+        style: defaultStyle,
+        children: <TextSpan>[
+          TextSpan(text: text),
+          TextSpan(
+              text: textButton,
+              style: linkStyle,
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  print('Terms of Service"');
+                }),
+        ],
+      ),
+    );
+  }
+  static TextStyle _buildTextStyle({
+    bool? arialFont,
+    bool? underline,
+    Color? color,
+    double? fontSize,
+    FontWeight ?fontWeight,
+  }) {
+    Function googleFontBuilder = GoogleFonts.nunito;
+    if (arialFont??false) googleFontBuilder = GoogleFonts.lato;
+
+    return googleFontBuilder(
+      color: color,
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      fontStyle: FontStyle.normal,
+      decoration: underline??false ? TextDecoration.underline : null,
+      backgroundColor: AppColors.transparentColor,
+      // shadows: _textShadows(),
+    );
+  }
+}
+

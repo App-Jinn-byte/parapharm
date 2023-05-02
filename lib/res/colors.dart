@@ -24,6 +24,7 @@ class AppColors{
   static final whiteColor = Color.fromRGBO(248, 250, 254, 1);
   static const transparentColor = Color.fromRGBO(255, 255, 255, 0.0);
   static final signupColor = Color.fromRGBO(35, 40, 48, 1);
+  static final blackColorText = Color.fromRGBO(24, 23, 37, 1);
   static final shadowColor = Color.fromRGBO(93, 93, 93, 0.14);
   static final buttonColor = Color.fromRGBO(120, 149, 64, 1);
   static final arrowColor = Color.fromRGBO(174, 184, 196, 1);
@@ -55,6 +56,7 @@ class AppColors{
   static final borderGreyColor = Color.fromRGBO(240, 240, 240, 1);
   static final greyTextColor = Color.fromRGBO(252, 252, 252, 0.7);
   static final darkGreyTextColor = Color.fromRGBO(124, 124, 124, 1);
+  static final darkBlueText = Color.fromRGBO(40, 43, 53, 1);
   static final blueBorderColor = Color.fromRGBO(0, 63, 154, 1);
   static const divColor = Color.fromRGBO(0, 63, 154, 1);
   static const dotColor = Color.fromRGBO(0, 0, 0, 0.3);
