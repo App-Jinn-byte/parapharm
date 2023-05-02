@@ -28,12 +28,12 @@ class MyText extends StatelessWidget {
     this.overflow = TextOverflow.ellipsis,
     this.maxLines,
     this.fontSize = MyTextSize.M,
-    this.color = Colors.white,
+    this.color = Colors.black,
     this.backgroundColor,
     this.bold = false,
     this.italic = false,
     this.underline = false,
-    this.shadow = true,
+    this.shadow = false,
     this.thinFont = false,
     this.arialFont = false,
     this.opacity = 1,
@@ -44,44 +44,44 @@ class MyText extends StatelessWidget {
     this.textAlign = TextAlign.center,
     this.overflow = TextOverflow.ellipsis,
     this.maxLines,
-    this.color = Colors.white,
+    this.color = Colors.black,
     this.backgroundColor,
     this.bold = false,
     this.italic = false,
     this.underline = false,
-    this.shadow = true,
+    this.shadow = false,
     this.thinFont = false,
     this.arialFont = false,
     this.opacity = 1,
   }) : fontSize = MyTextSize.S;
 
   MyText.M(
-      this.data, {
-        this.textAlign = TextAlign.center,
-        this.overflow = TextOverflow.ellipsis,
-        this.maxLines,
-        this.color = Colors.white,
-        this.backgroundColor,
-        this.bold = false,
-        this.italic = false,
-        this.underline = false,
-        this.shadow = true,
-        this.thinFont = false,
-        this.arialFont = false,
-        this.opacity = 1,
-      }) : fontSize = MyTextSize.M;
+    this.data, {
+    this.textAlign = TextAlign.center,
+    this.overflow = TextOverflow.ellipsis,
+    this.maxLines,
+    this.color = Colors.black,
+    this.backgroundColor,
+    this.bold = false,
+    this.italic = false,
+    this.underline = false,
+    this.shadow = false,
+    this.thinFont = false,
+    this.arialFont = false,
+    this.opacity = 1,
+  }) : fontSize = MyTextSize.M;
 
   MyText.XL(
     this.data, {
     this.textAlign = TextAlign.center,
     this.overflow = TextOverflow.ellipsis,
     this.maxLines,
-    this.color = Colors.white,
+    this.color = Colors.black,
     this.backgroundColor,
     this.bold = false,
     this.italic = false,
     this.underline = false,
-    this.shadow = true,
+    this.shadow = false,
     this.thinFont = false,
     this.arialFont = false,
     this.opacity = 1,
@@ -92,12 +92,12 @@ class MyText extends StatelessWidget {
     this.textAlign = TextAlign.center,
     this.overflow = TextOverflow.ellipsis,
     this.maxLines,
-    this.color = Colors.white,
+    this.color = Colors.black,
     this.backgroundColor,
     this.bold = false,
     this.italic = false,
     this.underline = false,
-    this.shadow = true,
+    this.shadow = false,
     this.thinFont = false,
     this.arialFont = false,
     this.opacity = 1,
@@ -108,7 +108,23 @@ class MyText extends StatelessWidget {
     this.textAlign = TextAlign.center,
     this.overflow = TextOverflow.ellipsis,
     this.maxLines,
-    this.color = Colors.white,
+    this.color = Colors.black,
+    this.backgroundColor,
+    this.bold = false,
+    this.italic = false,
+    this.underline = false,
+    this.shadow = false,
+    this.thinFont = false,
+    this.arialFont = false,
+    this.opacity = 1,
+  }) : fontSize = MyTextSize.XXXL;
+
+  MyText.XXXXL(
+    this.data, {
+    this.textAlign = TextAlign.center,
+    this.overflow = TextOverflow.ellipsis,
+    this.maxLines,
+    this.color = Colors.black,
     this.backgroundColor,
     this.bold = false,
     this.italic = false,
@@ -117,30 +133,14 @@ class MyText extends StatelessWidget {
     this.thinFont = false,
     this.arialFont = false,
     this.opacity = 1,
-  }) : fontSize = MyTextSize.XXXL;
-
-  MyText.XXXXL(
-      this.data, {
-        this.textAlign = TextAlign.center,
-        this.overflow = TextOverflow.ellipsis,
-        this.maxLines,
-        this.color = Colors.white,
-        this.backgroundColor,
-        this.bold = false,
-        this.italic = false,
-        this.underline = false,
-        this.shadow = true,
-        this.thinFont = false,
-        this.arialFont = false,
-        this.opacity = 1,
-      }) : fontSize = MyTextSize.XXXXL;
+  }) : fontSize = MyTextSize.XXXXL;
 
   MyText.L(
     this.data, {
     this.textAlign = TextAlign.center,
     this.overflow = TextOverflow.ellipsis,
     this.maxLines,
-    this.color = Colors.white,
+    this.color = Colors.black,
     this.backgroundColor,
     this.bold = false,
     this.italic = false,
@@ -168,35 +168,35 @@ class MyText extends StatelessWidget {
   }) : fontSize = MyTextSize.XS;
 
   MyText.XXS(
-      this.data, {
-        this.textAlign = TextAlign.center,
-        this.overflow = TextOverflow.ellipsis,
-        this.maxLines,
-        this.color = Colors.white,
-        this.backgroundColor,
-        this.bold = false,
-        this.italic = false,
-        this.underline = false,
-        this.shadow = true,
-        this.thinFont = false,
-        this.arialFont = false,
-        this.opacity = 1,
-      }) : fontSize = MyTextSize.XXS;
+    this.data, {
+    this.textAlign = TextAlign.center,
+    this.overflow = TextOverflow.ellipsis,
+    this.maxLines,
+    this.color = Colors.white,
+    this.backgroundColor,
+    this.bold = false,
+    this.italic = false,
+    this.underline = false,
+    this.shadow = true,
+    this.thinFont = false,
+    this.arialFont = false,
+    this.opacity = 1,
+  }) : fontSize = MyTextSize.XXS;
   MyText.XXXS(
-      this.data, {
-        this.textAlign = TextAlign.center,
-        this.overflow = TextOverflow.ellipsis,
-        this.maxLines,
-        this.color = Colors.white,
-        this.backgroundColor,
-        this.bold = false,
-        this.italic = false,
-        this.underline = false,
-        this.shadow = true,
-        this.thinFont = false,
-        this.arialFont = false,
-        this.opacity = 1,
-      }) : fontSize = MyTextSize.XXXS;
+    this.data, {
+    this.textAlign = TextAlign.center,
+    this.overflow = TextOverflow.ellipsis,
+    this.maxLines,
+    this.color = Colors.white,
+    this.backgroundColor,
+    this.bold = false,
+    this.italic = false,
+    this.underline = false,
+    this.shadow = true,
+    this.thinFont = false,
+    this.arialFont = false,
+    this.opacity = 1,
+  }) : fontSize = MyTextSize.XXXS;
 
   @override
   Widget build(BuildContext context) {
@@ -255,6 +255,6 @@ class MyText extends StatelessWidget {
   }
 
   FontStyle _fontStyle() {
-    return bold ? FontStyle.italic : FontStyle.normal;
+    return bold ? FontStyle.normal : FontStyle.normal;
   }
 }

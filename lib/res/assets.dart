@@ -29,7 +29,11 @@ class Assets {
   static const String appLogo = "assets/images/logo.png";
   static const String appColorLogo = "assets/images/color_logo.png";
   static const String logoText = "assets/images/logo_text.png";
-    static const String logoinaletr = "assets/png/logalert.png";
+  static const String logoinaletr = "assets/png/logalert.png";
+  static const String cartIconWhite =
+      "assets/images/trolley_cart_icon_white.png";
+  static const String crossIcon = "assets/images/cross_icon.png";
+  static const String editIcon = "assets/images/edit_icon.png";
 
   static const String homeIconSelected = "assets/images/home_icon.png";
   static const String homeIconUnselected =
@@ -46,11 +50,59 @@ class Assets {
       "assets/images/blog_unselected_icon.png";
   static const String hamburgerIcon = "assets/images/hamburger_icon.png";
   static const String cartIcon = "assets/images/cart_icon.png";
+  static const String cameraIcon = "assets/images/camera_icon.png";
   static const String backArrowIcon = "assets/images/back_icon.png";
+
+  //Feature Category
+  static const String featureCategoryImg01 =
+      "assets/images/feature_category_01.png";
+  static const String featureCategoryImg02 =
+      "assets/images/feature_category_02.png";
+  static const String featureCategoryImg03 =
+      "assets/images/feature_category_03.png";
+  static const String featureCategoryImg04 =
+      "assets/images/feature_category_04.png";
+
+  // Dummy Images
+  static const String offerBannerDummyImage = "assets/images/banner_dummy.png";
+  static const String offerBannerDummyImage02 =
+      "assets/images/banner_dummy_02.png";
+  static const String offerBannerDummyImage03 =
+      "assets/images/banner_dummy_03.png";
+  static const String productDummyImage01 =
+      "assets/images/product_dummy_img_01.png";
+  static const String productDummyImage02 =
+      "assets/images/product_dummy_img_02.png";
+  static const String brandLogoDummyIcon01 =
+      "assets/images/brand_logo_icons_dummy_01.png";
+  static const String brandLogoDummyIcon02 =
+      "assets/images/brand_logo_icons_dummy_02.png";
+  static const String brandLogoDummyIcon03 =
+      "assets/images/brand_logo_icons_dummy_03.png";
+  static const String brandLogoDummyIcon04 =
+      "assets/images/brand_logo_icons_dummy_04.png";
+  static const String categoryDummyImg01 =
+      "assets/images/category_dummy_img_01.png";
+  static const String categoryDummyImg02 =
+      "assets/images/category_dummy_img_02.png";
+  static const String categoryDummyImg03 =
+      "assets/images/category_dummy_img_03.png";
+  static const String categoryDummyImg04 =
+      "assets/images/category_dummy_img_04.png";
+  static const String categoryDummyImg05 =
+      "assets/images/category_dummy_img_05.png";
+  static const String categoryDummyImg06 =
+      "assets/images/category_dummy_img_06.png";
+  static const String categoryDummyImg07 =
+      "assets/images/category_dummy_img_07.png";
+  static const String categoryDummyImg08 =
+      "assets/images/category_dummy_img_08.png";
 
   static const String uploadIcon = "assets/png/upload_icon.png";
   static const String checkIcon = "assets/images/checkIcon.png";
-  static const String profileIcon = "assets/png/profile_icon.png";
+  static const String profileDummyIcon = "assets/images/profile_dummy_icon.png";
+  static const String profileDummyIcon02 =
+      "assets/images/profile_dummy_icon_02.png";
   static const String profileIcon1 = "assets/png/profile_icon1.png";
   static const String infoIcon = "assets/png/info_icon.png";
   static const String menuIcon = "assets/png/Menu.png";
@@ -109,5 +161,4 @@ class Assets {
   static const String backgroundImage = "assets/png/background_image.png";
   static const String insuranceImage = "assets/png/insurance.png";
   static const String licenseImage = "assets/png/license_image.png";
-  static const String editImage = "assets/png/edit_icon.png";
 }

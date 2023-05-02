@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
+import 'package:parapharm/screens/home_screen_pages/account_screen/view/account_screen_view.dart';
+import 'package:parapharm/screens/home_screen_pages/discounts_product_page/view/discounts_product_page_view.dart';
 import 'package:parapharm/screens/home_screen_pages/home_screen/view/home_screen_view.dart';
+import 'package:parapharm/screens/home_screen_pages/search_screen/view/search_screen_view.dart';
 
 class BottomNavigationScreen extends StatefulWidget {
   const BottomNavigationScreen({Key? key}) : super(key: key);
@@ -15,23 +18,12 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   int _selectedIndex = 0;
   static List<Widget> _widgetOptions = <Widget>[
     HomeScreenView(),
+    SearchScreenView(),
     Container(
       child: Text("dcsdcsdc"),
     ),
-    Container(
-      child: Text("dcsdcsdc"),
-    ),
-    Container(
-      child: Text("dcsdcsdc"),
-    ),
-    Container(
-      child: Text("dcsdcsdc"),
-    ),
-
-    // SearchScreen(),
-    // DiscountScreen(),
-    // BlogsScreen(),
-    // AmountScreen(),
+    DiscountsProductPageView(),
+    AccountScreenView()
   ];
 
   void _onItemTapped(int index) {

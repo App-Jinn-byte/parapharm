@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:parapharm/res/utils.dart';
 import 'sizes.dart';

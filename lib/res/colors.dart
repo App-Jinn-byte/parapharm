@@ -13,17 +13,23 @@ Map<int, Color> colorCodes = {
   900: Color.fromRGBO(147, 205, 72, 1),
 };
 
-class AppColors{
+class AppColors {
   static final appTheme = Color.fromRGBO(120, 149, 64, 1);
   static final appBackground = Color.fromRGBO(252, 252, 252, 1);
   static final blackTextColor = Color.fromRGBO(73, 73, 73, 1);
   static final textFieldBorderColor = Color.fromRGBO(226, 226, 226, 1);
-  static final hintTextColor = Color.fromRGBO(178, 178, 178, 1);
-  static final buttonBlue = Color.fromRGBO(19, 31, 84, 1);
+  static final hintTextColor = Color.fromRGBO(181, 181, 181, 1);
+  static final lightGreyColor = Color.fromRGBO(245, 245, 245, 1);
+  static final darkGreyColor = Color.fromRGBO(124, 124, 124, 1);
+  static final greyBorderColor = Color.fromRGBO(226, 226, 226, 1);
+  static final backgroundGreenColor = Color.fromRGBO(120, 149, 64, 0.32);
+  static final buttonBlue = Color.fromRGBO(0, 178, 255, 1);
+  static final logoutRedButtonColor = Color.fromRGBO(137, 22, 22, 1);
+  static final lightBlue = Color.fromRGBO(0, 178, 255, 1);
   static final whiteColor = Color.fromRGBO(248, 250, 254, 1);
   static const transparentColor = Color.fromRGBO(255, 255, 255, 0.0);
   static final signupColor = Color.fromRGBO(35, 40, 48, 1);
-  static final shadowColor = Color.fromRGBO(93, 93, 93, 0.14);
+  static final shadowColor = Color.fromRGBO(194, 194, 194, 0.25);
   static final buttonColor = Color.fromRGBO(120, 149, 64, 1);
   static final arrowColor = Color.fromRGBO(174, 184, 196, 1);
   static final greenColor = Color.fromRGBO(24, 175, 100, 1);
@@ -32,6 +38,7 @@ class AppColors{
   static final smallCardColor = Color.fromRGBO(227, 234, 242, 1);
   static const myMsgCardColor = Color.fromRGBO(240, 240, 240, 1);
   static const labelTextColor = Color.fromRGBO(81, 92, 111, 1);
+
   //Hex color code
 
   static final blueLight = "#2196F3";
@@ -40,8 +47,6 @@ class AppColors{
   static final colorWhite = "#ffebee";
   static final colorGreyLight = "#CFD8DC";
   static final colorGreyWhite = "#ECEFF1";
-
-
 
   // static final buttonBlue = "#131F54";
   // static final buttonBlueShadow = "#3C4C92D9";

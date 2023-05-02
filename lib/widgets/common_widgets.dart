@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,13 +10,283 @@ import 'package:parapharm/widgets/my_text.dart';
 import 'package:parapharm/widgets/my_text_enums.dart';
 
 class CommonWidgets {
+  static PreferredSize customAppBar({
+    required String title,
+    String? leadingIcon,
+    required VoidCallback onTapLeadingIcon,
+  }) {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(kToolbarHeight),
+      child: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        shadowColor: AppColors.transparentColor,
+        leading: GestureDetector(
+          onTap: onTapLeadingIcon,
+          child: Transform.scale(
+            scale: 0.35, // adjust the scale as needed
+            child: Image.asset(
+              leadingIcon ?? Assets.backArrowIcon,
+            ),
+          ),
+        ),
+        centerTitle: true,
+        title: MyText(
+          title,
+          shadow: false,
+          fontSize: MyTextSize.XXXL,
+          bold: true,
+          color: AppColors.blackColor,
+        ),
+        actions: [
+          Transform.scale(
+            scale: 0.42,
+            child: Image.asset(
+              Assets.cartIcon,
+              height: sizes!.heightRatio * 22,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
+  static Widget headingWithViewAllButtonRow(
+      {required text, required Function onTap}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        MyText.XXXL(
+          text,
+          shadow: false,
+          color: AppColors.blackColor,
+          bold: true,
+        ),
+        GestureDetector(
+          onTap: () {
+            onTap();
+          },
+          child: MyText.XXXL(
+            "View All",
+            shadow: false,
+            color: AppColors.appTheme,
+            bold: false,
+            underline: true,
+          ),
+        ),
+      ],
+    );
+  }
+
+  static Widget productCardWithCartButton(
+      {required String productName,
+      required productPrice,
+      required var icon,
+      Function? onViewProduct}) {
+    return Container(
+      width: sizes!.widthRatio * 155,
+      padding: EdgeInsets.only(bottom: sizes!.heightRatio * 9),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(width: 1.5, color: AppColors.greyBorderColor),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              Image.asset(
+                icon,
+                height: sizes!.heightRatio * 123,
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
+              Positioned(
+                top: sizes!.heightRatio * 5,
+                right: 10,
+                child: Container(
+                  padding: EdgeInsets.all(sizes!.heightRatio * 3),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: AppColors.backgroundGreenColor,
+                  ),
+                  child: const Icon(Icons.favorite_border, color: Colors.white),
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                vertical: sizes!.heightRatio * 8,
+                horizontal: sizes!.widthRatio * 14),
+            child: MyText.XXL(
+              productName,
+              bold: true,
+              color: AppColors.appTheme,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 14),
+            child: MyText.XL(
+              productPrice,
+              bold: true,
+            ),
+          ),
+          SizedBox(height: sizes!.heightRatio * 8),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              addToCartButton(),
+              Container(
+                height: sizes!.heightRatio * 29,
+                width: sizes!.widthRatio * 29,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(
+                    color: AppColors.greyBorderColor,
+                    width: 1.2,
+                  ),
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    if (onViewProduct != null) {
+                      onViewProduct();
+                    }
+                  },
+                  icon: Icon(
+                    Icons.remove_red_eye_outlined,
+                    color: AppColors.darkGreyColor,
+                    size: sizes!.heightRatio * 13,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  static Widget categoryCard({
+    required String categoryName,
+    required var icon,
+  }) {
+    return Container(
+      width: sizes!.widthRatio * 155,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(6),
+        border: Border.all(width: 1.5, color: AppColors.greyBorderColor),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            icon,
+            height: sizes!.heightRatio * 123,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                left: sizes!.widthRatio * 8, top: sizes!.heightRatio * 6),
+            child: MyText.XXL(
+              categoryName,
+              bold: true,
+              color: AppColors.appTheme,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  static Widget divider({double? verticalSpacing}) {
+    return SizedBox(
+      height: verticalSpacing ?? sizes!.heightRatio * 20,
+      child: Divider(
+        height: 1,
+        thickness: 0.5,
+        color: AppColors.darkGreyColor,
+      ),
+    );
+  }
+
+  static Widget addToCartButton() {
+    return Container(
+      height: sizes!.heightRatio * 29,
+      width: sizes!.widthRatio * 90,
+      child: ElevatedButton(
+        onPressed: () {
+          // TODO: Add button functionality
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.appTheme,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6),
+          ),
+          padding: EdgeInsets.zero,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              Assets.cartIconWhite,
+              height: sizes!.heightRatio * 15,
+            ),
+            SizedBox(
+              width: sizes!.widthRatio * 4,
+            ),
+            MyText(
+              'Add To Cart',
+              color: AppColors.whiteColor,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  static Widget addToCartLargeButton() {
+    return Container(
+      height: sizes!.heightRatio * 50,
+      width: double.infinity,
+      child: ElevatedButton(
+        onPressed: () {
+          // TODO: Add button functionality
+        },
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.appTheme,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(6),
+          ),
+          padding: EdgeInsets.zero,
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              Assets.cartIconWhite,
+              height: sizes!.heightRatio * 20,
+            ),
+            SizedBox(
+              width: sizes!.widthRatio * 15,
+            ),
+            MyText.XXXL(
+              'Add To Cart',
+              color: AppColors.whiteColor,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
   static Widget bottomSheet(
       {required BuildContext context,
       required Function? onCamera,
-      required Function? onGallery
-      }) {
+      required Function? onGallery}) {
     return Container(
       height: getHeight() * 0.15,
       width: MediaQuery.of(context).size.width,
@@ -60,6 +329,49 @@ class CommonWidgets {
     );
   }
 
+  static Widget customSearchTextField() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          SizedBox(
+            width: sizes!.width * 0.03,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: Image.asset(Assets.searchIconUnselected, color: Colors.grey),
+          ),
+          SizedBox(
+            width: sizes!.width * 0.01,
+          ),
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search Product',
+                hintStyle: TextStyle(
+                  color:
+                      AppColors.hintTextColor, // set the color of the hint text
+                ),
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   static Widget customText(
       {required text,
       required color,
@@ -68,7 +380,6 @@ class CommonWidgets {
       @required fontWeight,
       @required fontSize,
       @required alignment,
-
       required fontFamily,
       int? maxLines,
       String? textAlign}) {
@@ -82,7 +393,7 @@ class CommonWidgets {
       textAlign: textAlign == 'center' ? TextAlign.center : TextAlign.start,
       style: TextStyle(
         color: color,
-        fontSize: fontSize??getFontRatio() *14,
+        fontSize: fontSize ?? getFontRatio() * 14,
         fontFamily: fontFamily,
       ),
     );
@@ -127,7 +438,6 @@ class CommonWidgets {
       ),
     );
   }
-
 
   static Widget customNameTextField(
       {required placeHolder,
@@ -178,20 +488,23 @@ class CommonWidgets {
     );
   }
 
-  static Widget mainButton(String text,{required VoidCallback onPress, double ?width, double ?height, Color ?color}) {
+  static Widget mainButton(String text,
+      {required VoidCallback onPress,
+      double? width,
+      double? height,
+      Color? color}) {
     return Container(
       width: width ?? sizes!.widthRatio * 320,
       height: height ?? sizes!.heightRatio * 45,
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(7)),
-        color: AppColors.buttonColor,
+        borderRadius: const BorderRadius.all(Radius.circular(6)),
+        color: color ?? AppColors.buttonColor,
       ),
       child: TextButton(
         onPressed: () {
           onPress();
         },
-        child:
-        MyText.XXXL(
+        child: MyText.XXXL(
           text,
           shadow: false,
           color: AppColors.btnfeildColor,
@@ -199,13 +512,14 @@ class CommonWidgets {
       ),
     );
   }
-  static Widget mainTextButton(String text,{required VoidCallback onPress, Color ?color, bool? underline}) {
+
+  static Widget mainTextButton(String text,
+      {required VoidCallback onPress, Color? color, bool? underline}) {
     return TextButton(
       onPressed: () {
         onPress();
       },
-      child:
-      MyText.XXXL(
+      child: MyText.XXXL(
         text,
         shadow: false,
         color: AppColors.buttonColor,
@@ -214,7 +528,12 @@ class CommonWidgets {
       ),
     );
   }
-  static Widget mainButtonWithBorder(String text,{ required VoidCallback onPress, double ?width, double ?height, Color ?color}) {
+
+  static Widget mainButtonWithBorder(String text,
+      {required VoidCallback onPress,
+      double? width,
+      double? height,
+      Color? color}) {
     return Container(
       width: width ?? sizes!.widthRatio * 320,
       height: height ?? sizes!.heightRatio * 45,
@@ -224,7 +543,7 @@ class CommonWidgets {
           width: 1,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(7)),
-        color: color??AppColors.buttonColor,
+        color: color ?? AppColors.buttonColor,
       ),
       child: TextButton(
         onPressed: () {
@@ -234,8 +553,7 @@ class CommonWidgets {
           //   onPress();
           // }
         },
-        child:
-        MyText.XXXL(
+        child: MyText.XXXL(
           text,
           shadow: false,
           color: AppColors.btnfeildColor,
@@ -384,13 +702,15 @@ class CommonWidgets {
   }
 
   //
-  static Widget customTextField(
-      {
-      required String hintText,
-      @required TextEditingController? controller,
-      required TextInputType keyboardType, double ?width, double ?height,}) {
+  static Widget customTextField({
+    required String hintText,
+    @required TextEditingController? controller,
+    required TextInputType keyboardType,
+    double? width,
+    double? height,
+  }) {
     return Container(
-      height: height?? 50 * getHeightRatio(),
+      height: height ?? 50 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
@@ -401,10 +721,11 @@ class CommonWidgets {
         controller: controller,
         keyboardType: keyboardType,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 15,right:15,top: 13, bottom: 13),
+          contentPadding:
+              EdgeInsets.only(left: 15, right: 15, top: 13, bottom: 13),
           isDense: true,
           disabledBorder: OutlineInputBorder(
-            borderSide:  BorderSide(
+            borderSide: BorderSide(
               color: AppColors.textFieldBorderColor,
               width: 1.0,
             ),
@@ -412,22 +733,28 @@ class CommonWidgets {
           ),
           border: InputBorder.none,
           hintText: hintText,
-          hintStyle: _buildTextStyle(arialFont: true, underline: false,
-              color: AppColors.hintTextColor, fontSize: MyTextSize.XXXL,
-          fontWeight: FontWeight.normal),
+          hintStyle: _buildTextStyle(
+              arialFont: true,
+              underline: false,
+              color: AppColors.hintTextColor,
+              fontSize: MyTextSize.XXXL,
+              fontWeight: FontWeight.normal),
         ),
       ),
     );
   }
-  static Widget passwordTextField(
-      {
-        bool ?showPassword,
-      required String hintText,
-      required VoidCallback onClick,
-      @required TextEditingController? controller,
-      required TextInputType keyboardType, double ?width, double ?height,}) {
+
+  static Widget passwordTextField({
+    bool? showPassword,
+    required String hintText,
+    required VoidCallback onClick,
+    @required TextEditingController? controller,
+    required TextInputType keyboardType,
+    double? width,
+    double? height,
+  }) {
     return Container(
-      height: height?? 50 * getHeightRatio(),
+      height: height ?? 50 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
@@ -438,10 +765,11 @@ class CommonWidgets {
         controller: controller,
         keyboardType: keyboardType,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 15,right:15,top: 13, bottom: 13),
+          contentPadding:
+              EdgeInsets.only(left: 15, right: 15, top: 13, bottom: 13),
           isDense: true,
           disabledBorder: OutlineInputBorder(
-            borderSide:  BorderSide(
+            borderSide: BorderSide(
               color: AppColors.textFieldBorderColor,
               width: 1.0,
             ),
@@ -455,7 +783,14 @@ class CommonWidgets {
               padding: EdgeInsets.symmetric(
                   horizontal: getWidthRatio() * 10,
                   vertical: getHeightRatio() * 5),
-              child: showPassword??false?Icon(Icons.visibility_off, color: AppColors.buttonBlue,size: sizes!.width*0.055):Icon(Icons.remove_red_eye, color: AppColors.lightGrey,size: sizes!.width*0.055,),
+              child: showPassword ?? false
+                  ? Icon(Icons.visibility_off,
+                      color: AppColors.buttonBlue, size: sizes!.width * 0.055)
+                  : Icon(
+                      Icons.remove_red_eye,
+                      color: AppColors.lightGrey,
+                      size: sizes!.width * 0.055,
+                    ),
               // child: Image.asset(
               //   hidePassword ? Assets.eyeIcon : Assets.visibleIcon,
               //   height: sizes!.width*0.001,
@@ -465,9 +800,12 @@ class CommonWidgets {
               // ),
             ),
           ),
-          hintStyle: _buildTextStyle(arialFont: true, underline: false,
-              color: AppColors.hintTextColor, fontSize: MyTextSize.XXXL,
-          fontWeight: FontWeight.normal),
+          hintStyle: _buildTextStyle(
+              arialFont: true,
+              underline: false,
+              color: AppColors.hintTextColor,
+              fontSize: MyTextSize.XXXL,
+              fontWeight: FontWeight.normal),
         ),
       ),
     );
@@ -478,17 +816,17 @@ class CommonWidgets {
     bool? underline,
     Color? color,
     double? fontSize,
-    FontWeight ?fontWeight,
+    FontWeight? fontWeight,
   }) {
     Function googleFontBuilder = GoogleFonts.nunito;
-    if (arialFont??false) googleFontBuilder = GoogleFonts.lato;
+    if (arialFont ?? false) googleFontBuilder = GoogleFonts.lato;
 
     return googleFontBuilder(
       color: color,
-      fontSize: myFontRatio *(fontSize??13.0),
+      fontSize: myFontRatio * (fontSize ?? 13.0),
       fontWeight: fontWeight,
       fontStyle: FontStyle.normal,
-      decoration: underline??false ? TextDecoration.underline : null,
+      decoration: underline ?? false ? TextDecoration.underline : null,
       backgroundColor: AppColors.transparentColor,
       // shadows: _textShadows(),
     );
@@ -500,13 +838,12 @@ class CommonWidgets {
       @required TextEditingController? controller,
       required TextInputType keyboardType}) {
     return Container(
-      height:sizes!.height*0.20,
+      height: sizes!.height * 0.20,
       width: sizes!.width,
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
         borderRadius: BorderRadius.circular(27),
-
         boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(93, 93, 93, 0.08),
@@ -518,7 +855,6 @@ class CommonWidgets {
       child: TextFormField(
         autofocus: false,
         maxLines: 60,
-
         controller: controller,
         keyboardType: keyboardType,
         decoration: InputDecoration(
@@ -526,10 +862,7 @@ class CommonWidgets {
               const EdgeInsets.only(left: 25, right: 25, top: 12, bottom: 8),
           isDense: true,
           disabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Colors.white,
-              width: 1.0
-            ),
+            borderSide: const BorderSide(color: Colors.white, width: 1.0),
             borderRadius: BorderRadius.circular(27),
           ),
           border: InputBorder.none,
@@ -561,7 +894,6 @@ class CommonWidgets {
       required TextInputType keyboardType}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
-
       height: 60 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -600,7 +932,7 @@ class CommonWidgets {
               color: const Color.fromRGBO(81, 92, 111, .50),
               fontSize: 15.5 * getFontRatio(),
               fontWeight: FontWeight.bold),
-            hintText: hintext,
+          hintText: hintext,
           hintStyle: TextStyle(
               height: 4.0,
               fontFamily: Assets.robotoRegular,
@@ -642,7 +974,7 @@ class CommonWidgets {
           obscureText: hidePassword,
           decoration: InputDecoration(
             contentPadding:
-            const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
             isDense: true,
             disabledBorder: OutlineInputBorder(
               borderSide: const BorderSide(
@@ -673,7 +1005,14 @@ class CommonWidgets {
                 padding: EdgeInsets.symmetric(
                     horizontal: getWidthRatio() * 10,
                     vertical: getHeightRatio() * 5),
-                child: hidePassword?Icon(Icons.visibility_off, color: AppColors.buttonBlue,size: sizes!.width*0.055):Icon(Icons.remove_red_eye, color: AppColors.lightGrey,size: sizes!.width*0.055,),
+                child: hidePassword
+                    ? Icon(Icons.visibility_off,
+                        color: AppColors.buttonBlue, size: sizes!.width * 0.055)
+                    : Icon(
+                        Icons.remove_red_eye,
+                        color: AppColors.lightGrey,
+                        size: sizes!.width * 0.055,
+                      ),
                 // child: Image.asset(
                 //   hidePassword ? Assets.eyeIcon : Assets.visibleIcon,
                 //   height: sizes!.width*0.001,
@@ -743,7 +1082,8 @@ class CommonWidgets {
             controller: controller,
             enabled: false,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(left: 15,right:15,top: 10, bottom: 16),
+              contentPadding:
+                  EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 16),
               focusedBorder: InputBorder.none,
               isDense: true,
               border: InputBorder.none,
@@ -815,5 +1155,4 @@ class CommonWidgets {
       ),
     );
   }
-
 }
