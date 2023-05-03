@@ -42,8 +42,12 @@ class Assets {
   static const String homeIconUnselected =
       "assets/images/home_unselected_icon.png";
   static const String searchIconUnselected =
-      "assets/images/search_unselected_icon.png";
+      "assets/images/search_unseletcted_icon.png";
+  static const String searchIconSelected =
+      "assets/images/search_selected_icon.png";
   static const String discountIconUnselected =
+      "assets/images/discount_unselected_icon.png";
+  static const String discountIconSelected =
       "assets/images/discount_selected_icon.png";
   static const String accountIconSelected =
       "assets/images/account_selected_icon.png";
@@ -51,6 +55,7 @@ class Assets {
       "assets/images/account_unselected_icon.png";
   static const String blogIconUnselected =
       "assets/images/blog_unselected_icon.png";
+  static const String blogIconSelected = "assets/images/blog_selected_icon.png";
   static const String hamburgerIcon = "assets/images/hamburger_icon.png";
   static const String cartIcon = "assets/images/cart_icon.png";
   static const String cameraIcon = "assets/images/camera_icon.png";

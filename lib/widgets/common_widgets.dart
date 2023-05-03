@@ -18,7 +18,7 @@ class CommonWidgets {
     required VoidCallback onTapLeadingIcon,
   }) {
     return PreferredSize(
-      preferredSize: Size.fromHeight(kToolbarHeight),
+      preferredSize: const Size.fromHeight(kToolbarHeight),
       child: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -36,7 +36,7 @@ class CommonWidgets {
         title: MyText(
           title,
           shadow: false,
-          fontSize: MyTextSize.XXXL,
+          fontSize: MyTextSize.XL,
           bold: true,
           color: AppColors.blackColor,
         ),
@@ -58,7 +58,7 @@ class CommonWidgets {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        MyText.XXXL(
+        MyText.XL(
           text,
           shadow: false,
           color: AppColors.blackColor,
@@ -68,7 +68,7 @@ class CommonWidgets {
           onTap: () {
             onTap();
           },
-          child: MyText.XXXL(
+          child: MyText.XL(
             "View All",
             shadow: false,
             color: AppColors.appTheme,
@@ -121,7 +121,7 @@ class CommonWidgets {
             padding: EdgeInsets.symmetric(
                 vertical: sizes!.heightRatio * 8,
                 horizontal: sizes!.widthRatio * 14),
-            child: MyText.XXL(
+            child: MyText.M(
               productName,
               bold: true,
               color: AppColors.appTheme,
@@ -129,7 +129,7 @@ class CommonWidgets {
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 14),
-            child: MyText.XL(
+            child: MyText.S(
               productPrice,
               bold: true,
             ),
@@ -214,7 +214,7 @@ class CommonWidgets {
   }
 
   static Widget addToCartButton() {
-    return Container(
+    return SizedBox(
       height: sizes!.heightRatio * 29,
       width: sizes!.widthRatio * 90,
       child: ElevatedButton(
@@ -239,7 +239,7 @@ class CommonWidgets {
             SizedBox(
               width: sizes!.widthRatio * 4,
             ),
-            MyText(
+            MyText.XS(
               'Add To Cart',
               color: AppColors.whiteColor,
             ),
@@ -351,8 +351,12 @@ class CommonWidgets {
             width: sizes!.width * 0.03,
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: Image.asset(Assets.searchIconUnselected, color: Colors.grey),
+            padding: EdgeInsets.symmetric(horizontal: sizes!.heightRatio * 6),
+            child: Image.asset(
+              Assets.searchIconUnselected,
+              color: Colors.grey,
+              height: sizes!.heightRatio * 18,
+            ),
           ),
           SizedBox(
             width: sizes!.width * 0.01,
@@ -490,7 +494,11 @@ class CommonWidgets {
     );
   }
 
-  static Widget mainButton(String text,{required VoidCallback onPress, double ?width, double ?height, Color ?color}) {
+  static Widget mainButton(String text,
+      {required VoidCallback onPress,
+      double? width,
+      double? height,
+      Color? color}) {
     return Container(
       width: width ?? sizes!.widthRatio * 320,
       height: height ?? sizes!.heightRatio * 45,
@@ -510,7 +518,9 @@ class CommonWidgets {
       ),
     );
   }
-  static Widget mainTextButton(String text,{required VoidCallback onPress, Color ?color, bool? underline}) {
+
+  static Widget mainTextButton(String text,
+      {required VoidCallback onPress, Color? color, bool? underline}) {
     return TextButton(
       onPressed: () {
         onPress();
@@ -557,25 +567,34 @@ class CommonWidgets {
       ),
     );
   }
-  static Widget mainButtonWithBorderAndIcon(String text, String iconPath,{ required VoidCallback onPress, double ?width, double ?height, Color ?color, Color? textColor, Color? buttonBorderColor}) {
+
+  static Widget mainButtonWithBorderAndIcon(String text, String iconPath,
+      {required VoidCallback onPress,
+      double? width,
+      double? height,
+      Color? color,
+      Color? textColor,
+      Color? buttonBorderColor}) {
     return Container(
       width: width ?? sizes!.widthRatio * 320,
       height: height ?? sizes!.heightRatio * 45,
       decoration: BoxDecoration(
         border: Border.all(
-          color: buttonBorderColor??AppColors.buttonColor,
+          color: buttonBorderColor ?? AppColors.buttonColor,
           width: 1,
         ),
         borderRadius: const BorderRadius.all(Radius.circular(7)),
-        color: color??AppColors.buttonColor,
+        color: color ?? AppColors.buttonColor,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-
         children: [
-          Image.asset(iconPath, height: sizes!.height*0.03, width: sizes!.height*0.03,),
-
+          Image.asset(
+            iconPath,
+            height: sizes!.height * 0.03,
+            width: sizes!.height * 0.03,
+          ),
           TextButton(
             onPressed: () {
               onPress();
@@ -584,11 +603,10 @@ class CommonWidgets {
               //   onPress();
               // }
             },
-            child:
-            MyText.L(
+            child: MyText.L(
               text,
               shadow: false,
-              color: textColor??Colors.deepOrange,
+              color: textColor ?? Colors.deepOrange,
             ),
           ),
         ],
@@ -740,7 +758,7 @@ class CommonWidgets {
     required String hintText,
     @required TextEditingController? controller,
     @required TextInputAction? textInputAction,
-      requiredTextInputType keyboardType,
+    required TextInputType keyboardType,
     double? width,
     double? height,
   }) {
@@ -755,7 +773,7 @@ class CommonWidgets {
         autofocus: false,
         controller: controller,
         keyboardType: keyboardType,
-        textInputAction: textInputAction??TextInputAction.done,
+        textInputAction: textInputAction ?? TextInputAction.done,
         decoration: InputDecoration(
           contentPadding:
               EdgeInsets.only(left: 15, right: 15, top: 13, bottom: 13),
@@ -769,24 +787,24 @@ class CommonWidgets {
           ),
           border: InputBorder.none,
           hintText: hintText,
-          hintStyle: _buildTextStyle(arialFont: true, underline: false,
-              color: AppColors.hintTextColor, fontSize: MyTextSize.L,
-          fontWeight: FontWeight.normal),
+          hintStyle: _buildTextStyle(
+              arialFont: true,
+              underline: false,
+              color: AppColors.hintTextColor,
+              fontSize: MyTextSize.L,
+              fontWeight: FontWeight.normal),
         ),
       ),
     );
   }
 
-
-
   static Widget customTextFieldWithLabel(
       {required String labeltext,
-        required String hintext,
-        @required TextEditingController? controller,
-        required TextInputType keyboardType}) {
+      required String hintext,
+      @required TextEditingController? controller,
+      required TextInputType keyboardType}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
-
       height: 60 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -805,8 +823,8 @@ class CommonWidgets {
         controller: controller,
         keyboardType: keyboardType,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 15,right:15,top: 10, bottom: 13),
-
+          contentPadding:
+              EdgeInsets.only(left: 15, right: 15, top: 10, bottom: 13),
           isDense: true,
           disabledBorder: OutlineInputBorder(
             borderSide: const BorderSide(
@@ -835,15 +853,18 @@ class CommonWidgets {
       ),
     );
   }
-  static Widget passwordTextField(
-      {
-        bool ?showPassword,
-      required String hintText,
-      required VoidCallback onClick,
-      @required TextEditingController? controller,
-      required TextInputType keyboardType, double ?width, double ?height,}) {
+
+  static Widget passwordTextField({
+    bool? showPassword,
+    required String hintText,
+    required VoidCallback onClick,
+    @required TextEditingController? controller,
+    required TextInputType keyboardType,
+    double? width,
+    double? height,
+  }) {
     return Container(
-      height: height?? 50 * getHeightRatio(),
+      height: height ?? 50 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
@@ -894,21 +915,24 @@ class CommonWidgets {
               underline: false,
               color: AppColors.hintTextColor,
               fontSize: MyTextSize.L,
-          fontWeight: FontWeight.normal),
+              fontWeight: FontWeight.normal),
         ),
       ),
     );
   }
-  static Widget dropDownTextField(
-      {
-        bool ?showPassword,
-      required String hintText,
-      required VoidCallback onClick,
-      @required TextEditingController? controller,
-      @required TextInputAction? textInputAction,
-      required TextInputType keyboardType, double ?width, double ?height,}) {
+
+  static Widget dropDownTextField({
+    bool? showPassword,
+    required String hintText,
+    required VoidCallback onClick,
+    @required TextEditingController? controller,
+    @required TextInputAction? textInputAction,
+    required TextInputType keyboardType,
+    double? width,
+    double? height,
+  }) {
     return Container(
-      height: height?? 50 * getHeightRatio(),
+      height: height ?? 50 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
@@ -918,12 +942,13 @@ class CommonWidgets {
         autofocus: false,
         controller: controller,
         keyboardType: keyboardType,
-        textInputAction: textInputAction??TextInputAction.done,
+        textInputAction: textInputAction ?? TextInputAction.done,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.only(left: 15,right:15,top: 13, bottom: 13),
+          contentPadding:
+              EdgeInsets.only(left: 15, right: 15, top: 13, bottom: 13),
           isDense: true,
           disabledBorder: OutlineInputBorder(
-            borderSide:  BorderSide(
+            borderSide: BorderSide(
               color: AppColors.textFieldBorderColor,
               width: 1.0,
             ),
@@ -931,19 +956,21 @@ class CommonWidgets {
           ),
           border: InputBorder.none,
           hintText: hintText,
-
           suffixIcon: GestureDetector(
             onTap: onClick,
             child: Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: getWidthRatio() * 10,
                   vertical: getHeightRatio() * 5),
-              child: Icon(Icons.keyboard_arrow_down_sharp, color: AppColors.lightGrey,size: sizes!.width*0.065),
-
+              child: Icon(Icons.keyboard_arrow_down_sharp,
+                  color: AppColors.lightGrey, size: sizes!.width * 0.065),
             ),
           ),
-          hintStyle: _buildTextStyle(arialFont: true, underline: false,
-              color: AppColors.hintTextColor, fontSize: MyTextSize.L,
+          hintStyle: _buildTextStyle(
+              arialFont: true,
+              underline: false,
+              color: AppColors.hintTextColor,
+              fontSize: MyTextSize.L,
               fontWeight: FontWeight.normal),
         ),
       ),
@@ -955,17 +982,17 @@ class CommonWidgets {
     bool? underline,
     Color? color,
     double? fontSize,
-    FontWeight ?fontWeight,
+    FontWeight? fontWeight,
   }) {
     Function googleFontBuilder = GoogleFonts.nunito;
-    if (arialFont??false) googleFontBuilder = GoogleFonts.lato;
+    if (arialFont ?? false) googleFontBuilder = GoogleFonts.lato;
 
     return googleFontBuilder(
       color: color,
-      fontSize: fontSize ,
+      fontSize: fontSize,
       fontWeight: fontWeight,
       fontStyle: FontStyle.normal,
-      decoration: underline??false ? TextDecoration.underline : null,
+      decoration: underline ?? false ? TextDecoration.underline : null,
       backgroundColor: AppColors.transparentColor,
       // shadows: _textShadows(),
     );
@@ -977,7 +1004,7 @@ class CommonWidgets {
       @required TextEditingController? controller,
       required TextInputType keyboardType}) {
     return Container(
-      height:sizes!.height*0.20,
+      height: sizes!.height * 0.20,
       width: sizes!.width,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -1295,16 +1322,26 @@ class CommonWidgets {
     );
   }
 }
+
 class DifferentColorClickableText extends StatelessWidget {
-  const DifferentColorClickableText({Key? key, required this.onColorTextPressed, required this.text, required this.textButton}) : super(key: key);
+  const DifferentColorClickableText(
+      {Key? key,
+      required this.onColorTextPressed,
+      required this.text,
+      required this.textButton})
+      : super(key: key);
   final Function onColorTextPressed;
   final String text;
   final String textButton;
 
   @override
   Widget build(BuildContext context) {
-    TextStyle defaultStyle = _buildTextStyle(arialFont: true, color: AppColors.blackColorText, fontSize:MyTextSize.M );
-    TextStyle linkStyle = _buildTextStyle(color: AppColors.appTheme, fontSize: MyTextSize.M, arialFont: true);
+    TextStyle defaultStyle = _buildTextStyle(
+        arialFont: true,
+        color: AppColors.blackColorText,
+        fontSize: MyTextSize.M);
+    TextStyle linkStyle = _buildTextStyle(
+        color: AppColors.appTheme, fontSize: MyTextSize.M, arialFont: true);
     return RichText(
       text: TextSpan(
         style: defaultStyle,
@@ -1321,25 +1358,25 @@ class DifferentColorClickableText extends StatelessWidget {
       ),
     );
   }
+
   static TextStyle _buildTextStyle({
     bool? arialFont,
     bool? underline,
     Color? color,
     double? fontSize,
-    FontWeight ?fontWeight,
+    FontWeight? fontWeight,
   }) {
     Function googleFontBuilder = GoogleFonts.nunito;
-    if (arialFont??false) googleFontBuilder = GoogleFonts.lato;
+    if (arialFont ?? false) googleFontBuilder = GoogleFonts.lato;
 
     return googleFontBuilder(
       color: color,
       fontSize: fontSize,
       fontWeight: fontWeight,
       fontStyle: FontStyle.normal,
-      decoration: underline??false ? TextDecoration.underline : null,
+      decoration: underline ?? false ? TextDecoration.underline : null,
       backgroundColor: AppColors.transparentColor,
       // shadows: _textShadows(),
     );
   }
 }
-

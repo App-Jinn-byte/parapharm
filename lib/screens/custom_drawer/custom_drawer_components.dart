@@ -3,91 +3,85 @@ import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
 import 'package:parapharm/res/utils.dart';
-import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
 
 class CustomDrawerComponents {
   Widget drawerHeader(
       {Function? onEdit, String? userName, required BuildContext context}) {
-    return SizedBox(
-      // height: sizes!.heightRatio * 120,
-      child: DrawerHeader(
-        child: GestureDetector(
-          onTap: () => onEdit!.call(),
-          child: Column(
-            children: [
-              SizedBox(
-                height: sizes!.heightRatio * 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(180),
-                      child: PreferenceUtils.getProfileImage().contains("http")
-                          ? Image.network(
-                              PreferenceUtils.getProfileImage(),
-                              fit: BoxFit.fill,
-                              height: getHeightRatio() * 40,
-                              width: getHeightRatio() * 40,
-                              errorBuilder: (context, exception, stackTrack) =>
-                                  Image.asset(Assets.profileDummyIcon,
-                                      fit: BoxFit.fill,
-                                      width: getHeightRatio() * 50,
-                                      height: getHeightRatio() * 50),
-                              loadingBuilder: (BuildContext context,
-                                  Widget child,
-                                  ImageChunkEvent? loadingProgress) {
-                                if (loadingProgress == null) {
-                                  return child;
-                                }
-                                return Center(
-                                  child: CircularProgressIndicator(
-                                    value: loadingProgress.expectedTotalBytes !=
-                                            null
-                                        ? loadingProgress
-                                                .cumulativeBytesLoaded /
-                                            loadingProgress.expectedTotalBytes!
-                                        : null,
-                                  ),
-                                );
-                              },
-                            )
-                          : Image.asset(
-                              Assets.profileDummyIcon,
-                              height: getHeightRatio() * 60,
-                              width: getHeightRatio() * 60,
-                              fit: BoxFit.fill,
-                            )),
-                  GestureDetector(
-                    onTap: () => Navigator.pop(context),
-                    child: Image.asset(
-                      Assets.crossIcon,
-                      height: sizes!.heightRatio * 13,
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: getHeightRatio() * 15,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  MyText.XXXL(
-                    "Jhon Willams",
-                    bold: true,
-                  ),
-                  Image.asset(
-                    Assets.editIcon,
+    return DrawerHeader(
+      child: GestureDetector(
+        onTap: () => onEdit!.call(),
+        child: Column(
+          children: [
+            SizedBox(
+              height: sizes!.heightRatio * 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                    borderRadius: BorderRadius.circular(180),
+                    child: PreferenceUtils.getProfileImage().contains("http")
+                        ? Image.network(
+                            PreferenceUtils.getProfileImage(),
+                            fit: BoxFit.fill,
+                            height: getHeightRatio() * 40,
+                            width: getHeightRatio() * 40,
+                            errorBuilder: (context, exception, stackTrack) =>
+                                Image.asset(Assets.profileDummyIcon,
+                                    fit: BoxFit.fill,
+                                    width: getHeightRatio() * 50,
+                                    height: getHeightRatio() * 50),
+                            loadingBuilder: (BuildContext context, Widget child,
+                                ImageChunkEvent? loadingProgress) {
+                              if (loadingProgress == null) {
+                                return child;
+                              }
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  value: loadingProgress.expectedTotalBytes !=
+                                          null
+                                      ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                      : null,
+                                ),
+                              );
+                            },
+                          )
+                        : Image.asset(
+                            Assets.profileDummyIcon,
+                            height: getHeightRatio() * 60,
+                            width: getHeightRatio() * 60,
+                            fit: BoxFit.fill,
+                          )),
+                GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Image.asset(
+                    Assets.crossIcon,
                     height: sizes!.heightRatio * 13,
-                  )
-                ],
-              ),
-            ],
-          ),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: getHeightRatio() * 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                MyText.XL(
+                  "Jhon Willams",
+                  bold: true,
+                ),
+                Image.asset(
+                  Assets.editIcon,
+                  height: sizes!.heightRatio * 13,
+                )
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -115,7 +109,7 @@ class CustomDrawerComponents {
                   color: AppColors.shadowColor,
                   spreadRadius: 1,
                   blurRadius: 5,
-                  offset: Offset(0, 1), // changes position of shadow
+                  offset: const Offset(0, 1), // changes position of shadow
                 ),
               ],
               color: selected ? AppColors.buttonColor : Colors.white),
@@ -124,7 +118,7 @@ class CustomDrawerComponents {
               SizedBox(
                 width: getWidthRatio() * 20,
               ),
-              MyText.XXL(
+              MyText.M(
                 title,
                 bold: true,
                 color:

@@ -5,6 +5,7 @@ import 'package:parapharm/res/res.dart';
 import 'package:parapharm/res/utils.dart';
 import 'package:parapharm/screens/custom_drawer/custom_drawer_components.dart';
 import 'package:parapharm/screens/custom_drawer/custom_drawer_provider.dart';
+import 'package:parapharm/screens/order_history_screen/view/order_history_screen_view.dart';
 import 'package:parapharm/screens/wish_list_screen/view/wishlist_screen_view.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:provider/provider.dart';
@@ -98,8 +99,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
               selected: customDrawerProvider.index == 2,
               onPress: () {
                 updateIndex(2);
-                // Navigator.pushReplacement(
-                //     context, MaterialPageRoute(builder: (_) => const EarningsScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => OrderHistoryScreenView()));
               }),
           customDrawerComponents.menuItem(
               title: 'My wishlist',

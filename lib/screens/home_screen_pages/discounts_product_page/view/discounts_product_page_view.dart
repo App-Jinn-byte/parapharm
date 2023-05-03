@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/screens/custom_drawer/custom_drawer.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 
 class DiscountsProductPageView extends StatelessWidget {
   DiscountsProductPageView({Key? key}) : super(key: key);
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      key: _scaffoldKey,
+      drawer: const CustomDrawer(),
       appBar: CommonWidgets.customAppBar(
           title: "Discounts",
           leadingIcon: Assets.hamburgerIcon,
           onTapLeadingIcon: () {
-            Navigator.pop(context);
+            _scaffoldKey.currentState?.openDrawer();
           }),
       body: SizedBox(
         width: sizes!.width,

@@ -183,11 +183,11 @@ class AccountScreenView extends StatelessWidget {
 
   Widget _textNameRow({required String text, required String textValue}) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      MyText.XXXL(
+      MyText.L(
         "$text:",
         bold: true,
       ),
-      MyText.XXXL(
+      MyText.L(
         textValue,
         color: AppColors.darkGreyColor,
       )

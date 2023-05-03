@@ -54,20 +54,28 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage(
-                Assets.homeIconSelected,
+                Assets.homeIconUnselected,
               ),
               size: 24,
               color: AppColors.appTheme,
             ),
+            activeIcon: ImageIcon(
+              AssetImage(Assets.homeIconSelected),
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(Assets.searchIconUnselected)),
-            label: 'Search',
-          ),
+              icon: ImageIcon(AssetImage(Assets.searchIconUnselected)),
+              label: 'Search',
+              activeIcon: ImageIcon(
+                AssetImage(Assets.searchIconSelected),
+              )),
           BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(Assets.blogIconUnselected)),
+            icon: ImageIcon(
+              AssetImage(Assets.blogIconSelected),
+            ),
             label: 'Blogs',
+            activeIcon: ImageIcon(AssetImage(Assets.blogIconSelected)),
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(Assets.discountIconUnselected)),

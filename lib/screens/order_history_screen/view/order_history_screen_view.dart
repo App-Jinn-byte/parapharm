@@ -1,25 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/res.dart';
-import 'package:parapharm/screens/custom_drawer/custom_drawer.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 
-class SearchScreenView extends StatelessWidget {
-  SearchScreenView({Key? key}) : super(key: key);
+import 'widget/widget.dart';
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+class OrderHistoryScreenView extends StatelessWidget {
+  OrderHistoryScreenView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      key: _scaffoldKey,
-      drawer: const CustomDrawer(),
       appBar: CommonWidgets.customAppBar(
-          title: "Search",
-          leadingIcon: Assets.hamburgerIcon,
+          title: "Order History",
           onTapLeadingIcon: () {
-            _scaffoldKey.currentState?.openDrawer();
+            Navigator.pop(context);
           }),
       body: SizedBox(
           width: sizes!.width,
@@ -31,9 +27,12 @@ class SearchScreenView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: sizes!.height * 0.03,
+                    height: sizes!.height * 0.04,
                   ),
-                  CommonWidgets.customSearchTextField(),
+                  OrderHistoryCard(),
+                  OrderHistoryCard(),
+                  OrderHistoryCard(),
+                  OrderHistoryCard(),
                 ],
               ),
             ),

@@ -153,7 +153,7 @@ class EditAccountScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    MyText.XXXL(
+                    MyText.XL(
                       "Full Name",
                       color: AppColors.darkGreyColor,
                     ),
@@ -166,7 +166,7 @@ class EditAccountScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    MyText.XXXL(
+                    MyText.XL(
                       "Email Address",
                       color: AppColors.darkGreyColor,
                     ),
@@ -179,7 +179,7 @@ class EditAccountScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    MyText.XXXL(
+                    MyText.XL(
                       "Phone Number ",
                       color: AppColors.darkGreyColor,
                     ),
@@ -192,7 +192,7 @@ class EditAccountScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    MyText.XXXL(
+                    MyText.XL(
                       "Password",
                       color: AppColors.darkGreyColor,
                     ),
@@ -206,7 +206,7 @@ class EditAccountScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    MyText.XXXL(
+                    MyText.XL(
                       "ConfirmPassword",
                       color: AppColors.darkGreyColor,
                     ),
@@ -220,7 +220,7 @@ class EditAccountScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    MyText.XXXL(
+                    MyText.XL(
                       "City",
                       color: AppColors.darkGreyColor,
                     ),
@@ -232,7 +232,7 @@ class EditAccountScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    MyText.XXXL(
+                    MyText.XL(
                       "Delivery Address",
                       color: AppColors.darkGreyColor,
                     ),

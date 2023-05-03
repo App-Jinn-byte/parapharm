@@ -20,7 +20,7 @@ class HomeScreenView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
-        drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
         appBar: CommonWidgets.customAppBar(
             title: "Home",
             leadingIcon: Assets.hamburgerIcon,
@@ -37,9 +37,6 @@ class HomeScreenView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
-                      height: sizes!.height * 0.01,
-                    ),
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
@@ -158,7 +155,7 @@ class HomeScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    MyText.XXXL(
+                    MyText.XL(
                       "Brand Logo",
                       shadow: false,
                       color: AppColors.blackColor,
@@ -177,23 +174,27 @@ class HomeScreenView extends StatelessWidget {
   }
 
   Widget featureCategoryContainer({required image, required text}) {
-    return Column(
-      children: [
-        Container(
-            height: sizes!.heightRatio * 70,
-            width: sizes!.widthRatio * 70,
-            // decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(4),
-            //     border: Border.all(color: AppColors.lightGreyColor, width: 2)),
-            child: Image.asset(image)),
-        SizedBox(
-          height: sizes!.heightRatio * 5,
-        ),
-        MyText.XL(
-          text,
-          shadow: false,
-        )
-      ],
+    return SizedBox(
+      width: sizes!.widthRatio * 70,
+      child: Column(
+        children: [
+          SizedBox(
+              height: sizes!.heightRatio * 70,
+              width: sizes!.widthRatio * 70,
+              // decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(4),
+              //     border: Border.all(color: AppColors.lightGreyColor, width: 2)),
+              child: Image.asset(image)),
+          SizedBox(
+            height: sizes!.heightRatio * 5,
+          ),
+          MyText.S(
+            text,
+            maxLines: 1,
+            shadow: false,
+          )
+        ],
+      ),
     );
   }
 
@@ -281,9 +282,12 @@ class HomeScreenView extends StatelessWidget {
           itemCount: featureCategoryListText.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (BuildContext context, int index) {
-            return featureCategoryContainer(
-                image: featureCategoryIconsList[index],
-                text: featureCategoryListText[index]);
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 2),
+              child: featureCategoryContainer(
+                  image: featureCategoryIconsList[index],
+                  text: featureCategoryListText[index]),
+            );
           }),
     );
   }
@@ -302,7 +306,7 @@ class HomeScreenView extends StatelessWidget {
           borderRadius: BorderRadius.circular(6),
         ),
       ),
-      child: MyText.XXL(
+      child: MyText.S(
         text,
         color: AppColors.whiteColor,
         shadow: false, // add the text for the button
@@ -319,8 +323,8 @@ class HomeScreenView extends StatelessWidget {
         width: double.infinity,
         child: ListView.builder(
           itemCount: 3,
+          physics: const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.horizontal,
-          itemExtent: sizes!.widthRatio * 111,
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: EdgeInsets.only(right: sizes!.widthRatio * 9.0),

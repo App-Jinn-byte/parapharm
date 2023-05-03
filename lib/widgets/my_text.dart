@@ -145,7 +145,7 @@ class MyText extends StatelessWidget {
     this.bold = false,
     this.italic = false,
     this.underline = false,
-    this.shadow = true,
+    this.shadow = false,
     this.thinFont = false,
     this.arialFont = false,
     this.opacity = 1,
@@ -161,7 +161,7 @@ class MyText extends StatelessWidget {
     this.bold = false,
     this.italic = false,
     this.underline = false,
-    this.shadow = true,
+    this.shadow = false,
     this.thinFont = false,
     this.arialFont = false,
     this.opacity = 1,
@@ -216,7 +216,7 @@ class MyText extends StatelessWidget {
 
     return googleFontBuilder(
       color: color,
-      fontSize:  fontSize,
+      fontSize: fontSize,
       fontWeight: _fontWeight(),
       fontStyle: _fontStyle(),
       decoration: underline ? TextDecoration.underline : null,
