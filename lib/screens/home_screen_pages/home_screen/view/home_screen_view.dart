@@ -355,29 +355,4 @@ class HomeScreenView extends StatelessWidget {
   }
 
   final categoryListText = ["Good Plans", "Gift Boxes ", "Baby Boxes"];
-
-  static Widget mainButton(String text,
-      {required VoidCallback onPress,
-      double? width,
-      double? height,
-      Color? color}) {
-    return Container(
-      width: width ?? sizes!.widthRatio * 320,
-      height: height ?? sizes!.heightRatio * 45,
-      decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(7)),
-        color: AppColors.buttonColor,
-      ),
-      child: TextButton(
-        onPressed: () {
-          onPress();
-        },
-        child: MyText.XXXL(
-          text,
-          shadow: false,
-          color: AppColors.btnfeildColor,
-        ),
-      ),
-    );
-  }
 }

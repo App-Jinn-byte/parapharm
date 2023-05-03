@@ -32,14 +32,6 @@ class BannerOfferScreenView extends StatelessWidget {
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
-                CarouselSliderWidget(sliderImages: [
-                  Assets.offerBannerDummyImage,
-                  Assets.offerBannerDummyImage02,
-                  Assets.offerBannerDummyImage03,
-                ]),
-                SizedBox(
-                  height: sizes!.height * 0.035,
-                ),
                 GridView.builder(
                   itemCount: 8,
                   shrinkWrap: true,
