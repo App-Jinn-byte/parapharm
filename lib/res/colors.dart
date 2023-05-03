@@ -13,9 +13,10 @@ Map<int, Color> colorCodes = {
   900: Color.fromRGBO(147, 205, 72, 1),
 };
 
-class AppColors {
+class AppColors{
   static final appTheme = Color.fromRGBO(120, 149, 64, 1);
   static final appBackground = Color.fromRGBO(252, 252, 252, 1);
+  static final dividerColor = Color.fromRGBO(203, 203, 203, 1);
   static final blackTextColor = Color.fromRGBO(73, 73, 73, 1);
   static final textFieldBorderColor = Color.fromRGBO(226, 226, 226, 1);
   static final hintTextColor = Color.fromRGBO(181, 181, 181, 1);
@@ -29,6 +30,8 @@ class AppColors {
   static final whiteColor = Color.fromRGBO(248, 250, 254, 1);
   static const transparentColor = Color.fromRGBO(255, 255, 255, 0.0);
   static final signupColor = Color.fromRGBO(35, 40, 48, 1);
+  static final blackColorText = Color.fromRGBO(24, 23, 37, 1);
+  static final shadowColor = Color.fromRGBO(93, 93, 93, 0.14);
   static final shadowColor = Color.fromRGBO(194, 194, 194, 0.25);
   static final buttonColor = Color.fromRGBO(120, 149, 64, 1);
   static final arrowColor = Color.fromRGBO(174, 184, 196, 1);
@@ -38,7 +41,6 @@ class AppColors {
   static final smallCardColor = Color.fromRGBO(227, 234, 242, 1);
   static const myMsgCardColor = Color.fromRGBO(240, 240, 240, 1);
   static const labelTextColor = Color.fromRGBO(81, 92, 111, 1);
-
   //Hex color code
 
   static final blueLight = "#2196F3";
@@ -47,6 +49,8 @@ class AppColors {
   static final colorWhite = "#ffebee";
   static final colorGreyLight = "#CFD8DC";
   static final colorGreyWhite = "#ECEFF1";
+
+
 
   // static final buttonBlue = "#131F54";
   // static final buttonBlueShadow = "#3C4C92D9";
@@ -59,10 +63,13 @@ class AppColors {
   static final borderGreyColor = Color.fromRGBO(240, 240, 240, 1);
   static final greyTextColor = Color.fromRGBO(252, 252, 252, 0.7);
   static final darkGreyTextColor = Color.fromRGBO(124, 124, 124, 1);
+  static final darkBlueText = Color.fromRGBO(40, 43, 53, 1);
   static final blueBorderColor = Color.fromRGBO(0, 63, 154, 1);
   static const divColor = Color.fromRGBO(0, 63, 154, 1);
   static const dotColor = Color.fromRGBO(0, 0, 0, 0.3);
   static const nameColor = Color.fromRGBO(35, 40, 48, 1);
+
+
 
   // shadow colors
   static const cardShadow = Color.fromRGBO(0, 0, 0, 0.03);
@@ -74,7 +81,9 @@ class AppColors {
   static final Color greyColor = HexColor.fromHex("#515C6F");
   static final Color blackColor = HexColor.fromHex("#232830");
   static final Color backgroundColor = HexColor.fromHex("#F4F3F8");
+
 }
+
 
 extension HexColor on Color {
   /// String is in the format "aabbcc" or "ffaabbcc" with an optional leading "#".
@@ -84,6 +93,7 @@ extension HexColor on Color {
     buffer.write(hexString.replaceFirst('#', ''));
     return Color(int.parse(buffer.toString(), radix: 16));
   }
+
 
   /// Prefixes a hash sign if [leadingHashSign] is set to `true` (default is `true`).
   String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'

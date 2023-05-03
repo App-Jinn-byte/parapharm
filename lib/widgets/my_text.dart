@@ -216,7 +216,7 @@ class MyText extends StatelessWidget {
 
     return googleFontBuilder(
       color: color,
-      fontSize: myFontRatio * fontSize,
+      fontSize:  fontSize,
       fontWeight: _fontWeight(),
       fontStyle: _fontStyle(),
       decoration: underline ? TextDecoration.underline : null,
