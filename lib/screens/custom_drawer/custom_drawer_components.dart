@@ -3,6 +3,7 @@ import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
 import 'package:parapharm/res/utils.dart';
+import 'package:parapharm/screens/edit_account_screen/view/edit_account_screen_view.dart';
 import 'package:parapharm/widgets/my_text.dart';
 
 class CustomDrawerComponents {
@@ -75,9 +76,17 @@ class CustomDrawerComponents {
                   "Jhon Willams",
                   bold: true,
                 ),
-                Image.asset(
-                  Assets.editIcon,
-                  height: sizes!.heightRatio * 13,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => EditAccountScreenView()));
+                  },
+                  child: Image.asset(
+                    Assets.editIcon,
+                    height: sizes!.heightRatio * 13,
+                  ),
                 )
               ],
             ),

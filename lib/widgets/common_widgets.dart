@@ -124,6 +124,7 @@ class CommonWidgets {
             child: MyText.M(
               productName,
               bold: true,
+              maxLines: 1,
               color: AppColors.appTheme,
             ),
           ),
@@ -169,6 +170,68 @@ class CommonWidgets {
     );
   }
 
+  static Widget blogItemCard(
+      {required String categoryName,
+      required var icon,
+      required Function readMoreTap}) {
+    return Container(
+      width: sizes!.widthRatio * 155,
+      decoration: BoxDecoration(
+        color: AppColors.whiteColor,
+        borderRadius: BorderRadius.circular(6),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            icon,
+            height: sizes!.heightRatio * 123,
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                left: sizes!.widthRatio * 6,
+                top: sizes!.heightRatio * 10,
+                right: sizes!.widthRatio * 6),
+            child: MyText(
+              categoryName,
+              bold: true,
+              color: AppColors.darkGreyColor,
+              maxLines: 2,
+              textAlign: TextAlign.start,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                left: sizes!.widthRatio * 6,
+                top: sizes!.heightRatio * 7,
+                right: sizes!.widthRatio * 6),
+            child: GestureDetector(
+              onTap: () {
+                readMoreTap();
+              },
+              child: MyText(
+                'Read More',
+                bold: true,
+                underline: true,
+                color: AppColors.appTheme,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   static Widget categoryCard({
     required String categoryName,
     required var icon,
@@ -191,7 +254,7 @@ class CommonWidgets {
           Padding(
             padding: EdgeInsets.only(
                 left: sizes!.widthRatio * 8, top: sizes!.heightRatio * 6),
-            child: MyText.XXL(
+            child: MyText.L(
               categoryName,
               bold: true,
               color: AppColors.appTheme,
@@ -207,8 +270,8 @@ class CommonWidgets {
       height: verticalSpacing ?? sizes!.heightRatio * 20,
       child: Divider(
         height: 1,
-        thickness: 0.5,
-        color: AppColors.darkGreyColor,
+        thickness: 1.1,
+        color: AppColors.greyBorderColor,
       ),
     );
   }
@@ -275,7 +338,7 @@ class CommonWidgets {
             SizedBox(
               width: sizes!.widthRatio * 15,
             ),
-            MyText.XXXL(
+            MyText.L(
               'Add To Cart',
               color: AppColors.whiteColor,
             ),
@@ -528,7 +591,7 @@ class CommonWidgets {
       child: MyText.M(
         text,
         shadow: false,
-        color: AppColors.buttonColor,
+        color: color ?? AppColors.buttonColor,
         underline: underline ?? false,
         arialFont: true,
       ),

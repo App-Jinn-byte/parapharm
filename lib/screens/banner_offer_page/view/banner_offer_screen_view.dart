@@ -37,12 +37,12 @@ class BannerOfferScreenView extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, // Two items per row
+                      crossAxisCount: 2,
                       crossAxisSpacing:
                           sizes!.widthRatio * 12, // Space between columns
                       mainAxisSpacing: sizes!.heightRatio * 18,
                       childAspectRatio:
-                          sizes!.heightRatio * 0.55 // Space between rows
+                          sizes!.heightRatio * 0.54 // Space between rows
                       ),
                   itemBuilder: (BuildContext context, int index) {
                     return CommonWidgets.productCardWithCartButton(

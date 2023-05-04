@@ -5,8 +5,10 @@ import 'package:parapharm/res/res.dart';
 import 'package:parapharm/screens/banner_offer_page/view/banner_offer_screen_view.dart';
 import 'package:parapharm/screens/brand_products_screen/view/brand_products_screen_view.dart';
 import 'package:parapharm/screens/categories_screen/view/categories_screen_view.dart';
+import 'package:parapharm/screens/category_internal_screen/view/category_internal_screen_view.dart';
 import 'package:parapharm/screens/custom_drawer/custom_drawer.dart';
 import 'package:parapharm/screens/home_screen_pages/home_screen/view/widget/widget.dart';
+import 'package:parapharm/screens/product_detail_screen/view/product_detail_screen_view.dart';
 import 'package:parapharm/widgets/carousel_slider_widget.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
@@ -88,16 +90,90 @@ class HomeScreenView extends StatelessWidget {
                     ),
                     FractionallySizedBox(
                       widthFactor: 1.08,
-                      child: Image.asset(
-                        Assets.offerBannerDummyImage02,
-                        fit: BoxFit.fill,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      BannerOfferScreenView()));
+                        },
+                        child: Image.asset(
+                          Assets.offerBannerDummyImage02,
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
                     CommonWidgets.headingWithViewAllButtonRow(
-                        text: "Sun Care Products", onTap: () {}),
+                        text: "Sun Care Products",
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      CategoriesScreenView()));
+                        }),
+                    SizedBox(
+                      height: sizes!.height * 0.035,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CommonWidgets.productCardWithCartButton(
+                            productName: "Face Mask Product",
+                            productPrice: "25,000 TND",
+                            icon: Assets.productDummyImage02,
+                            onViewProduct: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ProductDetailScreenView()));
+                            }),
+                        CommonWidgets.productCardWithCartButton(
+                            productName: "Face Mask Product",
+                            productPrice: "25,000 TND",
+                            icon: Assets.productDummyImage02,
+                            onViewProduct: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ProductDetailScreenView()));
+                            }),
+                      ],
+                    ),
+                    SizedBox(
+                      height: sizes!.height * 0.035,
+                    ),
+                    FractionallySizedBox(
+                      widthFactor: 1.08,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      BannerOfferScreenView()));
+                        },
+                        child: Image.asset(
+                          Assets.offerBannerDummyImage,
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    CommonWidgets.headingWithViewAllButtonRow(
+                        text: "Health Care Products",
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      CategoriesScreenView()));
+                        }),
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
@@ -119,37 +195,18 @@ class HomeScreenView extends StatelessWidget {
                     ),
                     FractionallySizedBox(
                       widthFactor: 1.08,
-                      child: Image.asset(
-                        Assets.offerBannerDummyImage,
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    CommonWidgets.headingWithViewAllButtonRow(
-                        text: "Health Care Products", onTap: () {}),
-                    SizedBox(
-                      height: sizes!.height * 0.035,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CommonWidgets.productCardWithCartButton(
-                            productName: "Face Mask Product",
-                            productPrice: "25,000 TND",
-                            icon: Assets.productDummyImage02),
-                        CommonWidgets.productCardWithCartButton(
-                            productName: "Face Mask Product",
-                            productPrice: "25,000 TND",
-                            icon: Assets.productDummyImage02),
-                      ],
-                    ),
-                    SizedBox(
-                      height: sizes!.height * 0.035,
-                    ),
-                    FractionallySizedBox(
-                      widthFactor: 1.08,
-                      child: Image.asset(
-                        Assets.offerBannerDummyImage,
-                        fit: BoxFit.fill,
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      ProductDetailScreenView()));
+                        },
+                        child: Image.asset(
+                          Assets.offerBannerDummyImage,
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -284,9 +341,17 @@ class HomeScreenView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 2),
-              child: featureCategoryContainer(
-                  image: featureCategoryIconsList[index],
-                  text: featureCategoryListText[index]),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CategoryInternalScreenView()));
+                },
+                child: featureCategoryContainer(
+                    image: featureCategoryIconsList[index],
+                    text: featureCategoryListText[index]),
+              ),
             );
           }),
     );

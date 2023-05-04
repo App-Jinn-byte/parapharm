@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
-import 'package:parapharm/widgets/carousel_slider_widget.dart';
+import 'package:parapharm/screens/brand_products_screen/view/brand_products_screen_view.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
 
-class ProductDetailScreenView extends StatelessWidget {
-  ProductDetailScreenView({Key? key}) : super(key: key);
+class BlogDetailsScreenView extends StatelessWidget {
+  BlogDetailsScreenView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
       appBar: CommonWidgets.customAppBar(
-          title: "Product Detail",
+          title: "Blog Details",
           onTapLeadingIcon: () {
             Navigator.pop(context);
           }),
@@ -30,31 +30,19 @@ class ProductDetailScreenView extends StatelessWidget {
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
-                CommonWidgets.customSearchTextField(),
-                SizedBox(
-                  height: sizes!.height * 0.035,
-                ),
-                CarouselSliderWidget(sliderImages: bannerImages),
-                SizedBox(
-                  height: sizes!.height * 0.035,
-                ),
-                _textNameRow(
-                    text: "Product Name", textValue: "Gamme Sebiaclear"),
-                CommonWidgets.divider(),
-                _textNameRow(text: "Price", textValue: "25,000 TND"),
-                SizedBox(
-                  height: sizes!.height * 0.035,
-                ),
-                MyText.XL(
-                  "Product Detail",
-                  bold: true,
+                FractionallySizedBox(
+                  widthFactor: 1.08,
+                  child: Image.asset(
+                    Assets.offerBannerDummyImage02,
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 SizedBox(
                   height: sizes!.height * 0.01,
                 ),
                 Align(
                   alignment: Alignment.topLeft,
-                  child: MyText.L(
+                  child: MyText.XXL(
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do etempor.consectetur adipiscielit.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed  do etempor.consectetur adipiscing elit.",
                     color: AppColors.darkGreyColor,
                     textAlign: TextAlign.start,
@@ -64,10 +52,14 @@ class ProductDetailScreenView extends StatelessWidget {
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
-                CommonWidgets.addToCartLargeButton(),
+                MyText.XL(
+                  "Brands Logo",
+                  bold: true,
+                ),
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
+                brandLogosList(),
                 CommonWidgets.headingWithViewAllButtonRow(
                     text: "Related Products", onTap: () {}),
                 SizedBox(
@@ -97,22 +89,70 @@ class ProductDetailScreenView extends StatelessWidget {
     ));
   }
 
-  Widget _textNameRow({required String text, required String textValue}) {
-    return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-      MyText.L(
-        "$text:",
-        bold: true,
-      ),
-      MyText.L(
-        textValue,
-        color: AppColors.appTheme,
-      )
-    ]);
+  Widget brandLogosList() {
+    return SizedBox(
+      height: sizes!.heightRatio * 100.0,
+      width: double.infinity,
+      child: ListView.builder(
+          itemCount: brandLogoIconsList.length,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) {
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => BrandProductsScreenView()));
+              },
+              child: brandIconContainer(
+                  image: brandLogoIconsList[index],
+                  text: featureCategoryListText[index]),
+            );
+          }),
+    );
   }
 
-  List<String> bannerImages = [
-    Assets.offerBannerDummyImage03,
-    Assets.offerBannerDummyImage,
-    Assets.offerBannerDummyImage02,
+  Widget brandIconContainer({required image, required text}) {
+    return Column(
+      children: [
+        Container(
+            height: sizes!.heightRatio * 70,
+            width: sizes!.widthRatio * 70,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(5),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.shadowColor,
+                  spreadRadius: 2,
+                  blurRadius: 10,
+                  offset: Offset(0, 1), // changes position of shadow
+                ),
+              ],
+            ),
+            margin: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 10),
+            padding: EdgeInsets.symmetric(horizontal: sizes!.widthRatio * 10),
+            // decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(4),
+            //     border: Border.all(color: AppColors.lightGreyColor, width: 2)),
+            child: Image.asset(image)),
+      ],
+    );
+  }
+
+  var brandLogoIconsList = [
+    Assets.brandLogoDummyIcon01,
+    Assets.brandLogoDummyIcon02,
+    Assets.brandLogoDummyIcon03,
+    Assets.brandLogoDummyIcon04,
+  ];
+
+  var featureCategoryListText = [
+    "Aromathrapy",
+    "Beauty Care ",
+    "Baby Care",
+    "Hair Care",
+    "Face Mask",
+    "Face Care"
   ];
 }

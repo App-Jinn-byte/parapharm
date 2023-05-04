@@ -37,7 +37,7 @@ class BrandProductsScreenView extends StatelessWidget {
                           sizes!.widthRatio * 12, // Space between columns
                       mainAxisSpacing: sizes!.heightRatio * 18,
                       childAspectRatio:
-                          sizes!.heightRatio * 0.55 // Space between rows
+                          sizes!.heightRatio * 0.54 // Space between rows
                       ),
                   itemBuilder: (BuildContext context, int index) {
                     return CommonWidgets.productCardWithCartButton(
