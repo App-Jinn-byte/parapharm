@@ -31,7 +31,7 @@ class AppColors {
   static const transparentColor = Color.fromRGBO(255, 255, 255, 0.0);
   static final signupColor = Color.fromRGBO(35, 40, 48, 1);
   static final blackColorText = Color.fromRGBO(24, 23, 37, 1);
-  static final shadowColor = Color.fromRGBO(93, 93, 93, 0.14);
+  static final shadowColor = Color.fromRGBO(194, 194, 194, 0.25);
   static final buttonColor = Color.fromRGBO(120, 149, 64, 1);
   static final arrowColor = Color.fromRGBO(174, 184, 196, 1);
   static final greenColor = Color.fromRGBO(24, 175, 100, 1);

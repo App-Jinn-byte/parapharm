@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:parapharm/animations/slide_right.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
 import 'package:parapharm/screens/banner_offer_page/view/banner_offer_screen_view.dart';
 import 'package:parapharm/screens/brand_products_screen/view/brand_products_screen_view.dart';
+import 'package:parapharm/screens/cart/cart_screen_first/cart_screen_first.dart';
 import 'package:parapharm/screens/categories_screen/view/categories_screen_view.dart';
 import 'package:parapharm/screens/category_internal_screen/view/category_internal_screen_view.dart';
 import 'package:parapharm/screens/custom_drawer/custom_drawer.dart';
@@ -26,6 +28,9 @@ class HomeScreenView extends StatelessWidget {
         appBar: CommonWidgets.customAppBar(
             title: "Home",
             leadingIcon: Assets.hamburgerIcon,
+            onTapCart: (){
+              Navigator.pushReplacement(context, SlideRightRoute(page: CartScreenFirst()));
+            },
             onTapLeadingIcon: () {
               _scaffoldKey.currentState?.openDrawer();
             }),

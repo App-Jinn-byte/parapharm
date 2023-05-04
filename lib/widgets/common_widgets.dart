@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/gestures.dart';
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:parapharm/main.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
@@ -16,6 +17,7 @@ class CommonWidgets {
     required String title,
     String? leadingIcon,
     required VoidCallback onTapLeadingIcon,
+     VoidCallback ?onTapCart,
   }) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -41,14 +43,51 @@ class CommonWidgets {
           color: AppColors.blackColor,
         ),
         actions: [
-          Transform.scale(
-            scale: 0.42,
-            child: Image.asset(
-              Assets.cartIcon,
-              height: sizes!.heightRatio * 22,
+          GestureDetector(
+            onTap: (){
+              onTapCart ?? (){};
+            },
+            child: Transform.scale(
+              scale: 0.42,
+              child: Image.asset(
+                Assets.cartIcon,
+                height: sizes!.heightRatio * 22,
+              ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  static PreferredSize customAppBarWithOneIcon({
+    required String title,
+    String? leadingIcon,
+    required VoidCallback onTapLeadingIcon,
+  }) {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(kToolbarHeight),
+      child: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        shadowColor: AppColors.transparentColor,
+        leading: GestureDetector(
+          onTap: onTapLeadingIcon,
+          child: Transform.scale(
+            scale: 0.35, // adjust the scale as needed
+            child: Image.asset(
+              leadingIcon ?? Assets.backArrowIcon,
+            ),
+          ),
+        ),
+        centerTitle: true,
+        title: MyText(
+          title,
+          shadow: false,
+          fontSize: MyTextSize.XXL,
+          bold: true,
+          color: AppColors.blackColor,
+        ),
       ),
     );
   }
@@ -573,7 +612,8 @@ class CommonWidgets {
         onPressed: () {
           onPress();
         },
-        child: MyText.L(
+        child:
+        MyText.L(
           text,
           shadow: false,
           color: AppColors.btnfeildColor,
@@ -588,6 +628,8 @@ class CommonWidgets {
       onPressed: () {
         onPress();
       },
+      child:
+      MyText.M(
       child: MyText.M(
         text,
         shadow: false,
@@ -625,7 +667,7 @@ class CommonWidgets {
         child: MyText.XXXL(
           text,
           shadow: false,
-          color: AppColors.btnfeildColor,
+          color: AppColors.appTheme,
         ),
       ),
     );
@@ -861,11 +903,13 @@ class CommonWidgets {
     );
   }
 
-  static Widget customTextFieldWithLabel(
+
+
+static Widget customTextFieldWithLabel(
       {required String labeltext,
-      required String hintext,
-      @required TextEditingController? controller,
-      required TextInputType keyboardType}) {
+        required String hintext,
+        @required TextEditingController? controller,
+        required TextInputType keyboardType}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
       height: 60 * getHeightRatio(),
@@ -978,7 +1022,7 @@ class CommonWidgets {
               underline: false,
               color: AppColors.hintTextColor,
               fontSize: MyTextSize.L,
-              fontWeight: FontWeight.normal),
+          fontWeight: FontWeight.normal),
         ),
       ),
     );
@@ -1052,7 +1096,7 @@ class CommonWidgets {
 
     return googleFontBuilder(
       color: color,
-      fontSize: fontSize,
+      fontSize: fontSize ,
       fontWeight: fontWeight,
       fontStyle: FontStyle.normal,
       decoration: underline ?? false ? TextDecoration.underline : null,
