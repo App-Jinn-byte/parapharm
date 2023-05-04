@@ -1,10 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
-import 'package:parapharm/res/res.dart';
 import 'package:parapharm/widgets/my_text.dart';
-import 'package:parapharm/widgets/my_text_enums.dart';
 
 class CustomAlertMessageWidget extends StatelessWidget {
   const CustomAlertMessageWidget({Key? key}) : super(key: key);

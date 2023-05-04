@@ -28,6 +28,10 @@ class Assets {
   // icons
   static const String appLogo = "assets/images/logo.png";
   static const String appColorLogo = "assets/images/color_logo.png";
+  static const String sampleProductImage = "assets/images/sample_product_image.png";
+  static const String minus = "assets/images/minus.png";
+  static const String plus = "assets/images/plus.png";
+  static const String cross = "assets/images/cross.png";
   static const String googleIcon = "assets/images/google_icon.png";
   static const String fbIcon = "assets/images/fb_icon.png";
   static const String checkMark = "assets/images/check_mark.png";

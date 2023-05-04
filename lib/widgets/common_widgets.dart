@@ -15,6 +15,7 @@ class CommonWidgets {
     required String title,
     String? leadingIcon,
     required VoidCallback onTapLeadingIcon,
+     VoidCallback ?onTapCart,
   }) {
     return PreferredSize(
       preferredSize: Size.fromHeight(kToolbarHeight),
@@ -40,14 +41,51 @@ class CommonWidgets {
           color: AppColors.blackColor,
         ),
         actions: [
-          Transform.scale(
-            scale: 0.42,
-            child: Image.asset(
-              Assets.cartIcon,
-              height: sizes!.heightRatio * 22,
+          GestureDetector(
+            onTap: (){
+              onTapCart ?? (){};
+            },
+            child: Transform.scale(
+              scale: 0.42,
+              child: Image.asset(
+                Assets.cartIcon,
+                height: sizes!.heightRatio * 22,
+              ),
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  static PreferredSize customAppBarWithOneIcon({
+    required String title,
+    String? leadingIcon,
+    required VoidCallback onTapLeadingIcon,
+  }) {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(kToolbarHeight),
+      child: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        shadowColor: AppColors.transparentColor,
+        leading: GestureDetector(
+          onTap: onTapLeadingIcon,
+          child: Transform.scale(
+            scale: 0.35, // adjust the scale as needed
+            child: Image.asset(
+              leadingIcon ?? Assets.backArrowIcon,
+            ),
+          ),
+        ),
+        centerTitle: true,
+        title: MyText(
+          title,
+          shadow: false,
+          fontSize: MyTextSize.XXL,
+          bold: true,
+          color: AppColors.blackColor,
+        ),
       ),
     );
   }
@@ -559,7 +597,7 @@ class CommonWidgets {
         child: MyText.XXXL(
           text,
           shadow: false,
-          color: AppColors.btnfeildColor,
+          color: AppColors.appTheme,
         ),
       ),
     );

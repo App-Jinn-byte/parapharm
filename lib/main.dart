@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:parapharm/providers/multi_provider.dart';
 import 'package:parapharm/screens/AuthScreens/login_screen/login.dart';
+import 'package:parapharm/screens/cart/cart_screen_first/cart_screen_first.dart';
+import 'package:parapharm/screens/cart/cart_screen_second/second_cart_screen_view.dart';
+import 'package:parapharm/screens/cart/cart_screen_third/third_cart_screen.dart';
+import 'package:parapharm/screens/onboarding/onboarding_screen.dart';
 import 'package:provider/provider.dart';
 
 
@@ -26,8 +30,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return const MaterialApp(
-          debugShowCheckedModeBanner: true,
-          home: LoginScreen(),
+          debugShowCheckedModeBanner: false,
+          home: OnboardingScreen(),
           title: 'Parapharm'
     );
   }

@@ -1,10 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parapharm/animations/slide_right.dart';
 import 'package:parapharm/main.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/screens/AuthScreens/forgot_password/forgot_password_screen.dart';
+import 'package:parapharm/screens/home_screen_pages/home_screen/view/home_screen_view.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
 import 'package:parapharm/widgets/my_text_enums.dart';
@@ -50,10 +53,12 @@ class LoginScreen extends StatelessWidget {
               CommonWidgets.passwordTextField(hintText: 'Enter Password', controller: emailOrNumberController, keyboardType: TextInputType.name, onClick: (){} ),
               Align(
                   alignment: Alignment.centerRight,
-                  child: CommonWidgets.mainTextButton("Forgot Password?", onPress: (){})),
+                  child: CommonWidgets.mainTextButton("Forgot Password?", onPress: (){Navigator.pushReplacement(context, SlideRightRoute(page: ForgotPasswordScreen()));})),
               SizedBox(height: sizes!.height*0.012,),
 
-              CommonWidgets.mainButton("Login", onPress: (){}, width: sizes!.width, height: sizes!.height*0.07,),
+              CommonWidgets.mainButton("Login", onPress: (){
+                Navigator.pushReplacement(context, SlideRightRoute(page: HomeScreenView()));
+              }, width: sizes!.width, height: sizes!.height*0.07,),
               Row(children: [
                 Expanded(child: Divider(color: AppColors.dividerColor,)),
                 Padding(

@@ -108,12 +108,8 @@ class CreateAccountScreen extends StatelessWidget {
 
                       hintText: 'Lorim Ipsum , Doloir, 00000', controller: provider.addressController, keyboardType: TextInputType.name,),
                     SizedBox(height: sizes!.height*0.05,),
-
                     CommonWidgets.mainButton("Create Account", onPress: (){}, width: sizes!.width, height: sizes!.height*0.07,),
                     SizedBox(height: sizes!.height*0.08,),
-
-                    // Spacer(),
-                    // CommonWidgets.mainTextButton("Don't have an account? SignUp", onPress: (){}),
                     DifferentColorClickableText(onColorTextPressed: (){},text: "Allready have an account? ",textButton: 'Login',),
                     SizedBox(height: sizes!.height*0.01,),
 

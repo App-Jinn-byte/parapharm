@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:parapharm/animations/slide_right.dart';
 import 'package:parapharm/main.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/screens/AuthScreens/create_account/create_account_screen.dart';
+import 'package:parapharm/screens/AuthScreens/login_screen/login.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
 
@@ -39,9 +42,12 @@ class OnboardingScreen extends StatelessWidget {
               SizedBox(height: sizes!.height*0.005,),
               MyText.XXL("Get your groceries in as fast as one hour", arialFont:true, shadow: false, color: AppColors.greyTextColor,),
               SizedBox(height: sizes!.height*0.04,),
-              CommonWidgets.mainButton("Login", onPress: (){}, width: sizes!.width*0.85, height: sizes!.height*0.07,),
+              CommonWidgets.mainButton("Login", onPress: (){
+                Navigator.pushReplacement(context, SlideRightRoute(page: LoginScreen()));}, width: sizes!.width*0.85, height: sizes!.height*0.07,),
               SizedBox(height: sizes!.height*0.02,),
-              CommonWidgets.mainButtonWithBorder("Create Account", onPress: (){}, width: sizes!.width*0.85, height: sizes!.height*0.07,color: AppColors.transparentColor),
+              CommonWidgets.mainButtonWithBorder("Create Account", onPress: (){
+                Navigator.pushReplacement(context, SlideRightRoute(page: const CreateAccountScreen()));
+              }, width: sizes!.width*0.85, height: sizes!.height*0.07,color: AppColors.transparentColor),
               SizedBox(height: sizes!.height*0.05,),
             ],
           ),
