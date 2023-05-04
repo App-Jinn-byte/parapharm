@@ -28,8 +28,8 @@ class HomeScreenView extends StatelessWidget {
         appBar: CommonWidgets.customAppBar(
             title: "Home",
             leadingIcon: Assets.hamburgerIcon,
-            onTapCart: (){
-              Navigator.pushReplacement(context, SlideRightRoute(page: CartScreenFirst()));
+            onTapCart: () {
+              Navigator.push(context, SlideRightRoute(page: CartScreenFirst()));
             },
             onTapLeadingIcon: () {
               _scaffoldKey.currentState?.openDrawer();

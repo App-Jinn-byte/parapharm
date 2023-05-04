@@ -17,7 +17,7 @@ class CommonWidgets {
     required String title,
     String? leadingIcon,
     required VoidCallback onTapLeadingIcon,
-     VoidCallback ?onTapCart,
+    VoidCallback? onTapCart,
   }) {
     return PreferredSize(
       preferredSize: const Size.fromHeight(kToolbarHeight),
@@ -44,9 +44,7 @@ class CommonWidgets {
         ),
         actions: [
           GestureDetector(
-            onTap: (){
-              onTapCart ?? (){};
-            },
+            onTap: onTapCart,
             child: Transform.scale(
               scale: 0.42,
               child: Image.asset(
@@ -612,8 +610,7 @@ class CommonWidgets {
         onPressed: () {
           onPress();
         },
-        child:
-        MyText.L(
+        child: MyText.L(
           text,
           shadow: false,
           color: AppColors.btnfeildColor,
@@ -628,8 +625,6 @@ class CommonWidgets {
       onPressed: () {
         onPress();
       },
-      child:
-      MyText.M(
       child: MyText.M(
         text,
         shadow: false,
@@ -903,13 +898,11 @@ class CommonWidgets {
     );
   }
 
-
-
-static Widget customTextFieldWithLabel(
+  static Widget customTextFieldWithLabel(
       {required String labeltext,
-        required String hintext,
-        @required TextEditingController? controller,
-        required TextInputType keyboardType}) {
+      required String hintext,
+      @required TextEditingController? controller,
+      required TextInputType keyboardType}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 25),
       height: 60 * getHeightRatio(),
@@ -1022,7 +1015,7 @@ static Widget customTextFieldWithLabel(
               underline: false,
               color: AppColors.hintTextColor,
               fontSize: MyTextSize.L,
-          fontWeight: FontWeight.normal),
+              fontWeight: FontWeight.normal),
         ),
       ),
     );
@@ -1096,7 +1089,7 @@ static Widget customTextFieldWithLabel(
 
     return googleFontBuilder(
       color: color,
-      fontSize: fontSize ,
+      fontSize: fontSize,
       fontWeight: fontWeight,
       fontStyle: FontStyle.normal,
       decoration: underline ?? false ? TextDecoration.underline : null,

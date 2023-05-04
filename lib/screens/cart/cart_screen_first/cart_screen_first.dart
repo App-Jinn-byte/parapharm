@@ -18,7 +18,9 @@ class CartScreenFirst extends StatelessWidget {
       appBar: CommonWidgets.customAppBarWithOneIcon(
           title: "Cart",
           leadingIcon: Assets.backArrowIcon,
-          onTapLeadingIcon: () {}),
+          onTapLeadingIcon: () {
+            Navigator.pop(context);
+          }),
       body: SafeArea(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: sizes!.width * 0.08),
@@ -108,7 +110,8 @@ class CartScreenFirst extends StatelessWidget {
                 height: sizes!.height * 0.03,
               ),
               CommonWidgets.mainButton("Validate My order", onPress: () {
-                Navigator.pushReplacement(context, SlideRightRoute(page: SecondCartScreenView()));
+                Navigator.pushReplacement(
+                    context, SlideRightRoute(page: SecondCartScreenView()));
               }),
               SizedBox(
                 height: sizes!.height * 0.03,

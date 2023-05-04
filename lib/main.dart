@@ -4,12 +4,12 @@ import 'package:parapharm/providers/multi_provider.dart';
 import 'package:parapharm/screens/onboarding/onboarding_screen.dart';
 import 'package:provider/provider.dart';
 
-
 late double myFontRatio;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky, overlays: [SystemUiOverlay.top]);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky,
+      overlays: [SystemUiOverlay.top]);
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
     runApp(
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: multiProviders,
         child: const MaterialApp(
-            debugShowCheckedModeBanner: true,
+            debugShowCheckedModeBanner: false,
             home: OnboardingScreen(),
             title: 'Parapharm'));
   }
