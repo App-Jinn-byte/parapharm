@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:parapharm/animations/slide_right.dart';
 import 'package:parapharm/main.dart';
 import 'package:parapharm/res/assets.dart';
@@ -10,7 +8,7 @@ import 'package:parapharm/screens/AuthScreens/forgot_password/forgot_password_sc
 import 'package:parapharm/screens/home_screen_pages/home_screen/view/home_screen_view.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
-import 'package:parapharm/widgets/my_text_enums.dart';
+
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);

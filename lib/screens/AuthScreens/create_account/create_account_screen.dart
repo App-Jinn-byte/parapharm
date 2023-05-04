@@ -105,7 +105,6 @@ class CreateAccountScreen extends StatelessWidget {
                     SizedBox(height: sizes!.height*0.012,),
                     CommonWidgets.customTextField(
                       textInputAction: TextInputAction.next,
-
                       hintText: 'Lorim Ipsum , Doloir, 00000', controller: provider.addressController, keyboardType: TextInputType.name,),
                     SizedBox(height: sizes!.height*0.05,),
                     CommonWidgets.mainButton("Create Account", onPress: (){}, width: sizes!.width, height: sizes!.height*0.07,),

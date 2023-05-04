@@ -1,4 +1,4 @@
-import 'package:flutter/gestures.dart';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -828,7 +828,7 @@ class CommonWidgets {
 
 
 
-  static Widget customTextFieldWithLabel(
+static Widget customTextFieldWithLabel(
       {required String labeltext,
         required String hintext,
         @required TextEditingController? controller,
@@ -995,7 +995,7 @@ class CommonWidgets {
           ),
           hintStyle: _buildTextStyle(arialFont: true, underline: false,
               color: AppColors.hintTextColor, fontSize: MyTextSize.L,
-              fontWeight: FontWeight.normal),
+          fontWeight: FontWeight.normal),
         ),
       ),
     );
@@ -1393,4 +1393,3 @@ class DifferentColorClickableText extends StatelessWidget {
     );
   }
 }
-
