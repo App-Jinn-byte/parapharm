@@ -28,6 +28,7 @@ class AppColors {
   static final logoutRedButtonColor = Color.fromRGBO(137, 22, 22, 1);
   static final lightBlue = Color.fromRGBO(0, 178, 255, 1);
   static final whiteColor = Color.fromRGBO(248, 250, 254, 1);
+  static final dialogWhiteColor = Color.fromRGBO(250, 250, 250, 1);
   static const transparentColor = Color.fromRGBO(255, 255, 255, 0.0);
   static final signupColor = Color.fromRGBO(35, 40, 48, 1);
   static final blackColorText = Color.fromRGBO(24, 23, 37, 1);

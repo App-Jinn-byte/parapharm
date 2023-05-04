@@ -38,9 +38,9 @@ class OnboardingScreen extends StatelessWidget {
               Spacer(),
               Image.asset(Assets.appLogo),
               SizedBox(height: sizes!.height*0.03,),
-              MyText.XXXXL("Welcome to our store", arialFont:true, shadow: false,),
+              MyText.XXL("Welcome to our store", arialFont:true, shadow: false,color: AppColors.whiteColor,),
               SizedBox(height: sizes!.height*0.005,),
-              MyText.XXL("Get your groceries in as fast as one hour", arialFont:true, shadow: false, color: AppColors.greyTextColor,),
+              MyText.M("Get your groceries in as fast as one hour", arialFont:true, shadow: false, color: AppColors.greyTextColor,),
               SizedBox(height: sizes!.height*0.04,),
               CommonWidgets.mainButton("Login", onPress: (){
                 Navigator.pushReplacement(context, SlideRightRoute(page: LoginScreen()));}, width: sizes!.width*0.85, height: sizes!.height*0.07,),

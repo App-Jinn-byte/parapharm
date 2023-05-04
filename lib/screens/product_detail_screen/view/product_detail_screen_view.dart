@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:parapharm/animations/slide_right.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/screens/cart/cart_screen_first/cart_screen_first.dart';
+import 'package:parapharm/screens/home_screen_pages/home_screen/view/home_screen_view.dart';
 import 'package:parapharm/widgets/carousel_slider_widget.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
@@ -64,7 +67,9 @@ class ProductDetailScreenView extends StatelessWidget {
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
-                CommonWidgets.addToCartLargeButton(),
+                CommonWidgets.addToCartLargeButton(onPressAddToCart: (){
+                  showConfirmProductDialog(context,productName: 'Caviar Clere Clarify Shampoo 500ml');
+                }),
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
@@ -109,6 +114,105 @@ class ProductDetailScreenView extends StatelessWidget {
       )
     ]);
   }
+  void showConfirmProductDialog(BuildContext context, {String ?productName}) {
+    showGeneralDialog(
+        barrierColor: Colors.black.withOpacity(0.7),
+        //SHADOW EFFECT
+        transitionBuilder: (context, animation, animationTime, widget) {
+          animation =
+              CurvedAnimation(parent: animation, curve: Curves.decelerate);
+          return ScaleTransition(
+            alignment: Alignment.center,
+            scale: animation,
+            child: widget,
+          );
+        },
+        transitionDuration: const Duration(milliseconds: 500),
+        // DURATION FOR ANIMATION
+        barrierDismissible: true,
+        barrierLabel: 'LABEL',
+        context: context,
+        pageBuilder: (context, animation, animationTime) {
+          return CommonWidgets.showCustomDialog(context,
+              widgetBody: Container(
+                height: sizes!.height*0.43,
+                width: sizes!.width,
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                decoration: BoxDecoration(
+                  color: AppColors.dialogWhiteColor,
+                  borderRadius: BorderRadius.circular(7),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.shadowColor,
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      offset: Offset(0, 1), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Align(
+                        alignment: Alignment.topRight,
+                        child: Icon(
+                          Icons.close,
+                          color: AppColors.blackTextColor,size: sizes!.height*0.04,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: sizes!.height*0.019,),
+                    Align(
+                        alignment: Alignment.center,
+                        child: MyText.XXL(
+                          "Confirmation",
+                          arialFont: true,
+                          shadow: false,
+                          color: AppColors.blackTextColor,
+                          bold: true,
+                          textAlign: TextAlign.center,
+                        )),
+                    SizedBox(height: sizes!.height*0.023,),
+
+                    DifferentColorText(
+                      textAlign: TextAlign.center,
+                      firstText: "The ",
+                      secondText: productName ?? '' ,
+                      thirdText:
+                      ' item has been successfully added to the shopping cart.',
+                    ),
+                    SizedBox(height: sizes!.height*0.02,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: CommonWidgets.mainButton("Continue My Shopping",
+                          onPress: () {
+                            Navigator.push(
+                                context, SlideRightRoute(page: HomeScreenView()));
+                          }),
+                    ),
+                    SizedBox(height: sizes!.height*0.02,),
+
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: CommonWidgets.mainButtonWithBorder("See My Cart",
+                          color: AppColors.transparentColor, onPress: () {
+                            Navigator.push(
+                                context, SlideRightRoute(page: CartScreenFirst()));
+                          }),
+                    ),
+                    SizedBox(height: sizes!.height*0.02,),
+
+                  ],
+                ),
+              ));
+        });
+  }
+
 
   List<String> bannerImages = [
     Assets.offerBannerDummyImage03,

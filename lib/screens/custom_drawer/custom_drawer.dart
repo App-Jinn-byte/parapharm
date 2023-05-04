@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:parapharm/animations/slide_right.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/screens/AuthScreens/login_screen/login.dart';
 import 'package:parapharm/screens/custom_drawer/custom_drawer_components.dart';
 import 'package:parapharm/screens/custom_drawer/custom_drawer_provider.dart';
 import 'package:parapharm/screens/home_screen_pages/bottom_navigation_screen/bottom_navigation_screen.dart';
@@ -102,8 +104,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
             child: CommonWidgets.mainButton("Logout",
                 height: sizes!.heightRatio * 32,
                 width: sizes!.widthRatio * 73,
-                color: AppColors.logoutRedButtonColor,
-                onPress: () {}),
+                color: AppColors.logoutRedButtonColor, onPress: () {
+              Navigator.pushReplacement(
+                  context, SlideRightRoute(page: LoginScreen()));
+            }),
           )
         ],
       ),

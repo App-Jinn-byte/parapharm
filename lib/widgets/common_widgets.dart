@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/gestures.dart';
@@ -6,9 +9,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:parapharm/animations/slide_right.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/screens/cart/cart_screen_first/cart_screen_first.dart';
+import 'package:parapharm/screens/home_screen_pages/home_screen/view/home_screen_view.dart';
 import 'package:parapharm/widgets/my_text.dart';
 import 'package:parapharm/widgets/my_text_enums.dart';
 
@@ -349,12 +355,13 @@ class CommonWidgets {
     );
   }
 
-  static Widget addToCartLargeButton() {
+  static Widget addToCartLargeButton({Function ?onPressAddToCart}) {
     return Container(
       height: sizes!.heightRatio * 50,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
+          onPressAddToCart?.call();
           // TODO: Add button functionality
         },
         style: ElevatedButton.styleFrom(
@@ -427,6 +434,30 @@ class CommonWidgets {
             ],
           )
         ],
+      ),
+    );
+  }
+  static Widget showCustomDialog(
+      BuildContext context, {
+        required Widget widgetBody
+      }) {
+    return BackdropFilter(
+      filter: ImageFilter.blur(sigmaX: 0.3, sigmaY: 0.3),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Dialog(
+
+          // surfaceTintColor: AppColors.darkGreyColor,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side:  BorderSide(
+                  color: AppColors.transparentColor,
+                  width: 0.5)),
+          // backgroundColor: AppColors.dialogWhiteColor,
+          child: widgetBody,
+        ),
       ),
     );
   }
@@ -1472,6 +1503,65 @@ class DifferentColorClickableText extends StatelessWidget {
     return googleFontBuilder(
       color: color,
       fontSize: fontSize,
+      fontWeight: fontWeight,
+      fontStyle: FontStyle.normal,
+      decoration: underline ?? false ? TextDecoration.underline : null,
+      backgroundColor: AppColors.transparentColor,
+      // shadows: _textShadows(),
+    );
+  }
+}
+class DifferentColorText extends StatelessWidget {
+  const DifferentColorText(
+      {Key? key, required this.firstText, required this.secondText, required this.thirdText, required this.textAlign,})
+      : super(key: key);
+  final String firstText;
+  final String secondText;
+  final String thirdText;
+  final TextAlign textAlign;
+
+  @override
+  Widget build(BuildContext context) {
+    TextStyle defaultStyle = _buildTextStyle(
+        arialFont: true,
+        color: AppColors.blackColorText,
+        fontSize: MyTextSize.M);
+    TextStyle linkStyle = _buildTextStyle(
+        color: AppColors.appTheme, fontSize: MyTextSize.M, arialFont: true);
+    return RichText(
+      textAlign: textAlign,
+      text: TextSpan(
+        style: defaultStyle,
+        children: <TextSpan>[
+          TextSpan(text: firstText),
+          TextSpan(
+              text: secondText,
+              style: linkStyle,
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  print('Terms of Service"');
+                }),
+          TextSpan(text: thirdText),
+
+        ],
+      ),
+    );
+  }
+
+  static TextStyle _buildTextStyle({
+    bool? arialFont,
+    bool? underline,
+    Color? color,
+    double? fontSize,
+    FontWeight? fontWeight,
+  }) {
+    Function googleFontBuilder = GoogleFonts.nunito;
+    if (arialFont ?? false) googleFontBuilder = GoogleFonts.lato;
+
+    return googleFontBuilder(
+      color: color,
+      fontSize: fontSize,
+
       fontWeight: fontWeight,
       fontStyle: FontStyle.normal,
       decoration: underline ?? false ? TextDecoration.underline : null,
