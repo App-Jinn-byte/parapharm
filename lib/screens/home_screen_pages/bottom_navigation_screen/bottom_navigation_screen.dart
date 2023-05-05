@@ -61,7 +61,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
               )),
           const BottomNavigationBarItem(
             icon: ImageIcon(
-              AssetImage(Assets.blogIconSelected),
+              AssetImage(Assets.blogIconUnSelected),
             ),
             label: 'Blogs',
             activeIcon: ImageIcon(AssetImage(Assets.blogIconSelected)),
@@ -69,10 +69,13 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
           const BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(Assets.discountIconUnselected)),
             label: 'Discount',
+            activeIcon: ImageIcon(AssetImage(Assets.discountIconSelected)),
           ),
           const BottomNavigationBarItem(
             icon: ImageIcon(AssetImage(Assets.accountIconUnselected)),
             label: 'Account',
+            activeIcon: ImageIcon(AssetImage(Assets.accountIconSelected)),
+
           ),
         ],
       ),
