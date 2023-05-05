@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:parapharm/animations/slide_right.dart';
 import 'package:parapharm/main.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/screens/AuthScreens/password_changed/password_changed_screen.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
 
@@ -46,7 +48,9 @@ class CreateNewPasswordScreen extends StatelessWidget {
               SizedBox(height: sizes!.height*0.012,),
               CommonWidgets.passwordTextField(hintText: 'Enter Password', controller: emailOrNumberController, keyboardType: TextInputType.name, onClick: (){} ),
               SizedBox(height: sizes!.height*0.04,),
-              CommonWidgets.mainButton("Reset Password", onPress: (){}, width: sizes!.width, height: sizes!.height*0.07,),
+              CommonWidgets.mainButton("Reset Password", onPress: (){
+                Navigator.push(context, SlideRightRoute(page: PasswordChangedScreen()));
+              }, width: sizes!.width, height: sizes!.height*0.07,),
             ],
           ),
         ),

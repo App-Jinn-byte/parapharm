@@ -636,6 +636,14 @@ class CommonWidgets {
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(6)),
         color: color ?? AppColors.buttonColor,
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
       ),
       child: TextButton(
         onPressed: () {
@@ -716,6 +724,14 @@ class CommonWidgets {
         ),
         borderRadius: const BorderRadius.all(Radius.circular(7)),
         color: color ?? AppColors.buttonColor,
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -899,6 +915,14 @@ class CommonWidgets {
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
         borderRadius: BorderRadius.circular(7),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
       ),
       child: TextFormField(
         autofocus: false,
@@ -941,11 +965,12 @@ class CommonWidgets {
         color: Colors.white,
         border: Border.all(color: Colors.white, width: 1),
         borderRadius: BorderRadius.circular(27),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Color.fromRGBO(93, 93, 93, 0.08),
-            blurRadius: 32,
-            offset: Offset(15, 15),
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
           ),
         ],
       ),
@@ -1000,6 +1025,14 @@ class CommonWidgets {
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
         borderRadius: BorderRadius.circular(7),
+        boxShadow: [
+          BoxShadow(
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
+          ),
+        ],
       ),
       child: TextFormField(
         autofocus: false,
@@ -1141,11 +1174,12 @@ class CommonWidgets {
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
         borderRadius: BorderRadius.circular(27),
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
-            color: Color.fromRGBO(93, 93, 93, 0.08),
-            blurRadius: 32,
-            offset: Offset(15, 15),
+            color: AppColors.shadowColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+            offset: Offset(0, 1), // changes position of shadow
           ),
         ],
       ),
