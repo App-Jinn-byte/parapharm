@@ -3,8 +3,10 @@ import 'package:parapharm/animations/slide_right.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/screens/AuthScreens/login_screen/login.dart';
 import 'package:parapharm/screens/cart/cart_screen_first/widgets/widgets.dart';
 import 'package:parapharm/screens/cart/cart_screen_second/second_cart_screen_view.dart';
+import 'package:parapharm/screens/home_screen_pages/home_screen/view/home_screen_view.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
 
@@ -118,7 +120,10 @@ class CartScreenFirst extends StatelessWidget {
               ),
               CommonWidgets.mainButtonWithBorder(
                 "Continue My Shopping",
-                onPress: () {},
+                onPress: () {
+                  Navigator.pushReplacement(
+                      context, SlideRightRoute(page: HomeScreenView()));
+                },
                 color: AppColors.transparentColor,
               ),
             ],
