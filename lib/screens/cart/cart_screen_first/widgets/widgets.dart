@@ -2,23 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
-import 'package:parapharm/widgets/common_widgets.dart';
 import 'package:parapharm/widgets/my_text.dart';
-import 'package:parapharm/widgets/my_text_enums.dart';
 
 class ProductCard extends StatelessWidget {
-  const ProductCard({Key? key, this.productName, this.productPrice, this.onPressCross, this.onPressDecrementItem, this.onPressIncrementItem, this.itemCount}) : super(key: key);
-  final String ? productName;
-  final String ? productPrice;
-  final String ? itemCount;
-  final Function ? onPressCross;
-  final Function ? onPressDecrementItem;
-  final Function ? onPressIncrementItem;
+  const ProductCard(
+      {Key? key,
+      this.productName,
+      this.productPrice,
+      this.onPressCross,
+      this.onPressDecrementItem,
+      this.onPressIncrementItem,
+      this.itemCount})
+      : super(key: key);
+  final String? productName;
+  final String? productPrice;
+  final String? itemCount;
+  final Function? onPressCross;
+  final Function? onPressDecrementItem;
+  final Function? onPressIncrementItem;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: sizes!.height*0.1,
+      height: sizes!.height * 0.1,
       width: sizes!.width,
       decoration: BoxDecoration(
         color: AppColors.appBackground,
@@ -28,7 +34,7 @@ class ProductCard extends StatelessWidget {
             color: AppColors.shadowColor,
             spreadRadius: 2,
             blurRadius: 10,
-            offset: Offset(0, 1), // changes position of shadow
+            offset: const Offset(0, 1), // changes position of shadow
           ),
         ],
       ),
@@ -36,57 +42,79 @@ class ProductCard extends StatelessWidget {
         children: [
           Expanded(
               flex: 1,
-              child: Image.asset(Assets.sampleProductImage, fit: BoxFit.fill,      height: sizes!.height*0.1,
-                width: sizes!.height*0.1,
-
+              child: Image.asset(
+                Assets.sampleProductImage,
+                fit: BoxFit.fill,
+                height: sizes!.height * 0.1,
+                width: sizes!.height * 0.1,
               )),
           Expanded(
               flex: 3,
               child: Container(
-                padding: EdgeInsets.all( sizes!.height*0.008,),
+                padding: EdgeInsets.all(
+                  sizes!.height * 0.008,
+                ),
                 child: Column(
-
                   children: [
                     Align(
                         alignment: Alignment.topRight,
                         child: GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               onPressCross?.call();
                             },
-                            child: Image.asset(Assets.cross))),
-                    SizedBox(height: sizes!.height*0.005,),
-
-                    Align(
-                        alignment: Alignment.centerLeft,child:
-                    MyText.M(productName??"", color: AppColors.appTheme,bold: true, )
+                            child: Image.asset(
+                              Assets.crossIcon,
+                              color: AppColors.redButtonColor,
+                              height: sizes!.heightRatio * 6.5,
+                            ))),
+                    SizedBox(
+                      height: sizes!.height * 0.005,
                     ),
-                    SizedBox(height: sizes!.height*0.001,),
-
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: MyText.M(
+                          productName ?? "",
+                          color: AppColors.appTheme,
+                          bold: true,
+                        )),
+                    SizedBox(
+                      height: sizes!.height * 0.001,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        MyText.S(productPrice??"", color: AppColors.blackColorText),
+                        MyText.S(productPrice ?? "",
+                            color: AppColors.blackColorText),
                         Row(
                           children: [
                             GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   onPressDecrementItem?.call();
                                 },
-                                child: Image.asset(Assets.minus)),
-                            SizedBox(width: sizes!.width*0.02,),
-
-                            MyText.M(itemCount??"", color: AppColors.blackColorText),
-                            SizedBox(width: sizes!.width*0.02,),
-
+                                child: Image.asset(
+                                  Assets.minus,
+                                  height: sizes!.heightRatio * 17,
+                                )),
+                            SizedBox(
+                              width: sizes!.width * 0.02,
+                            ),
+                            MyText.M(itemCount ?? "",
+                                color: AppColors.blackColorText),
+                            SizedBox(
+                              width: sizes!.width * 0.02,
+                            ),
                             GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   onPressIncrementItem?.call();
-                                },child: Image.asset(Assets.plus)),
+                                },
+                                child: Image.asset(
+                                  Assets.plus,
+                                  height: sizes!.heightRatio * 17,
+                                )),
                           ],
                         )
                       ],
                     ),
-
                   ],
                 ),
               ))

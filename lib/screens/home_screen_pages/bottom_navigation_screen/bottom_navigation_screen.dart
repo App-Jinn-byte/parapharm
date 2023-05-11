@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
+import 'package:parapharm/res/res.dart';
 import 'package:parapharm/screens/home_screen_pages/account_screen/view/account_screen_view.dart';
 import 'package:parapharm/screens/home_screen_pages/blogs_screen/view/blogs_screen_view.dart';
 import 'package:parapharm/screens/home_screen_pages/discounts_product_page/view/discounts_product_page_view.dart';
@@ -30,54 +31,56 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        selectedItemColor: AppColors.appTheme,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              const AssetImage(
-                Assets.homeIconUnselected,
+      bottomNavigationBar: SizedBox(
+        height: sizes!.heightRatio * 70,
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentIndex,
+          selectedItemColor: AppColors.appTheme,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                const AssetImage(
+                  Assets.homeIconUnselected,
+                ),
+                size: 24,
+                color: AppColors.appTheme,
               ),
-              size: 24,
-              color: AppColors.appTheme,
+              activeIcon: const ImageIcon(
+                AssetImage(Assets.homeIconSelected),
+              ),
+              label: 'Home',
             ),
-            activeIcon: const ImageIcon(
-              AssetImage(Assets.homeIconSelected),
+            const BottomNavigationBarItem(
+                icon: ImageIcon(AssetImage(Assets.searchIconUnselected)),
+                label: 'Search',
+                activeIcon: ImageIcon(
+                  AssetImage(Assets.searchIconSelected),
+                )),
+            const BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage(Assets.blogIconUnSelected),
+              ),
+              label: 'Blogs',
+              activeIcon: ImageIcon(AssetImage(Assets.blogIconSelected)),
             ),
-            label: 'Home',
-          ),
-          const BottomNavigationBarItem(
-              icon: ImageIcon(AssetImage(Assets.searchIconUnselected)),
-              label: 'Search',
-              activeIcon: ImageIcon(
-                AssetImage(Assets.searchIconSelected),
-              )),
-          const BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage(Assets.blogIconUnSelected),
+            const BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(Assets.discountIconUnselected)),
+              label: 'Discount',
+              activeIcon: ImageIcon(AssetImage(Assets.discountIconSelected)),
             ),
-            label: 'Blogs',
-            activeIcon: ImageIcon(AssetImage(Assets.blogIconSelected)),
-          ),
-          const BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(Assets.discountIconUnselected)),
-            label: 'Discount',
-            activeIcon: ImageIcon(AssetImage(Assets.discountIconSelected)),
-          ),
-          const BottomNavigationBarItem(
-            icon: ImageIcon(AssetImage(Assets.accountIconUnselected)),
-            label: 'Account',
-            activeIcon: ImageIcon(AssetImage(Assets.accountIconSelected)),
-
-          ),
-        ],
+            const BottomNavigationBarItem(
+              icon: ImageIcon(AssetImage(Assets.accountIconUnselected)),
+              label: 'Account',
+              activeIcon: ImageIcon(AssetImage(Assets.accountIconSelected)),
+            ),
+          ],
+        ),
       ),
       body: IndexedStack(
         index: _currentIndex,

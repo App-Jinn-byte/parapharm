@@ -26,6 +26,7 @@ class AppColors {
   static final backgroundGreenColor = Color.fromRGBO(120, 149, 64, 0.32);
   static final buttonBlue = Color.fromRGBO(0, 178, 255, 1);
   static final logoutRedButtonColor = Color.fromRGBO(137, 22, 22, 1);
+  static final redButtonColor = Color.fromRGBO(230, 31, 0, 1);
   static final lightBlue = Color.fromRGBO(0, 178, 255, 1);
   static final whiteColor = Color.fromRGBO(248, 250, 254, 1);
   static final dialogWhiteColor = Color.fromRGBO(250, 250, 250, 1);

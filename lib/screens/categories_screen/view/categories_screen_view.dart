@@ -36,6 +36,7 @@ class CategoriesScreenView extends StatelessWidget {
                   sliderImages: [
                     Assets.offerBannerDummyImage,
                     Assets.offerBannerDummyImage02,
+                    Assets.offerBannerDummyImage03,
                   ],
                 ),
                 SizedBox(

@@ -95,7 +95,7 @@ class SecondCartScreenView extends StatelessWidget {
               Align(
                   alignment: Alignment.centerLeft,
                   child: MyText.M(
-                    "Telephone *",
+                    "Telephone",
                     arialFont: true,
                     shadow: false,
                     color: AppColors.darkGreyTextColor,
@@ -115,7 +115,7 @@ class SecondCartScreenView extends StatelessWidget {
               Align(
                   alignment: Alignment.centerLeft,
                   child: MyText.M(
-                    "City *",
+                    "City",
                     arialFont: true,
                     shadow: false,
                     color: AppColors.darkGreyTextColor,
@@ -135,7 +135,7 @@ class SecondCartScreenView extends StatelessWidget {
               Align(
                   alignment: Alignment.centerLeft,
                   child: MyText.M(
-                    "Delivery Address *",
+                    "Delivery Address",
                     arialFont: true,
                     shadow: false,
                     color: AppColors.darkGreyTextColor,

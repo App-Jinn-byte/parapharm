@@ -173,7 +173,7 @@ class ThirdCartScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: sizes!.height * 0.05,
+                height: sizes!.height * 0.035,
               ),
               CommonWidgets.mainButton(
                 "Confirm My Order",
@@ -182,7 +182,7 @@ class ThirdCartScreen extends StatelessWidget {
                       context, SlideRightRoute(page: HomeScreenView()));
                 },
                 width: sizes!.width,
-                height: sizes!.height * 0.07,
+                height: sizes!.height * 0.06,
               ),
             ],
           ),

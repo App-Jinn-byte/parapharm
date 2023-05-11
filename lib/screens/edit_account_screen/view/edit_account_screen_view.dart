@@ -153,94 +153,109 @@ class EditAccountScreenView extends StatelessWidget {
                     SizedBox(
                       height: sizes!.height * 0.035,
                     ),
-                    MyText.XL(
+                    MyText.M(
                       "Full Name",
+                      arialFont: true,
                       color: AppColors.darkGreyColor,
                     ),
                     SizedBox(
-                      height: sizes!.height * 0.015,
+                      height: sizes!.heightRatio * 4,
                     ),
                     CommonWidgets.customTextField(
                         hintText: 'Enter your Full Name',
+                        showShadow: false,
                         keyboardType: TextInputType.name),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 12,
                     ),
-                    MyText.XL(
+                    MyText.M(
                       "Email Address",
+                      arialFont: true,
                       color: AppColors.darkGreyColor,
                     ),
                     SizedBox(
-                      height: sizes!.height * 0.015,
+                      height: sizes!.heightRatio * 4,
                     ),
                     CommonWidgets.customTextField(
                         hintText: 'Enter your Email ',
+                        showShadow: false,
                         keyboardType: TextInputType.name),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 12,
                     ),
-                    MyText.XL(
+                    MyText.M(
                       "Phone Number ",
+                      arialFont: true,
                       color: AppColors.darkGreyColor,
                     ),
                     SizedBox(
-                      height: sizes!.height * 0.015,
+                      height: sizes!.heightRatio * 4,
                     ),
                     CommonWidgets.customTextField(
                         hintText: '+12345678 ',
+                        showShadow: false,
                         keyboardType: TextInputType.name),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 12,
                     ),
-                    MyText.XL(
+                    MyText.M(
                       "Password",
+                      arialFont: true,
                       color: AppColors.darkGreyColor,
                     ),
                     SizedBox(
-                      height: sizes!.height * 0.015,
+                      height: sizes!.heightRatio * 4,
                     ),
                     CommonWidgets.passwordTextField(
                         hintText: 'Enter Password',
+                        showShadow: false,
                         keyboardType: TextInputType.name,
                         onClick: () {}),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 12,
                     ),
-                    MyText.XL(
+                    MyText.M(
                       "ConfirmPassword",
+                      arialFont: true,
                       color: AppColors.darkGreyColor,
                     ),
                     SizedBox(
-                      height: sizes!.height * 0.015,
+                      height: sizes!.heightRatio * 4,
                     ),
                     CommonWidgets.passwordTextField(
                         hintText: 'Enter Password',
+                        showShadow: false,
                         keyboardType: TextInputType.name,
                         onClick: () {}),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 12,
                     ),
-                    MyText.XL(
+                    MyText.M(
                       "City",
                       color: AppColors.darkGreyColor,
+                      arialFont: true,
                     ),
                     SizedBox(
-                      height: sizes!.height * 0.015,
+                      height: sizes!.heightRatio * 4,
                     ),
                     CommonWidgets.customTextField(
-                        hintText: 'City ', keyboardType: TextInputType.name),
+                        hintText: 'City ',
+                        showShadow: false,
+                        keyboardType: TextInputType.name),
                     SizedBox(
-                      height: sizes!.height * 0.035,
+                      height: sizes!.heightRatio * 12,
                     ),
-                    MyText.XL(
+                    MyText.M(
                       "Delivery Address",
+                      arialFont: true,
                       color: AppColors.darkGreyColor,
                     ),
                     SizedBox(
-                      height: sizes!.height * 0.015,
+                      height: sizes!.heightRatio * 4,
                     ),
                     CommonWidgets.customTextField(
                         hintText: 'Delivery Address',
+                        showShadow: false,
                         keyboardType: TextInputType.name),
                     SizedBox(
                       height: sizes!.height * 0.035,

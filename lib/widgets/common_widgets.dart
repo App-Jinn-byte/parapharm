@@ -19,6 +19,15 @@ import 'package:parapharm/widgets/my_text.dart';
 import 'package:parapharm/widgets/my_text_enums.dart';
 
 class CommonWidgets {
+  static pppColorLogo() {
+    return Image.asset(
+      Assets.appColorLogo,
+      fit: BoxFit.contain,
+      height: sizes!.heightRatio * 80,
+      width: sizes!.widthRatio * 80,
+    );
+  }
+
   static PreferredSize customAppBar({
     required String title,
     String? leadingIcon,
@@ -322,7 +331,7 @@ class CommonWidgets {
   static Widget addToCartButton() {
     return SizedBox(
       height: sizes!.heightRatio * 29,
-      width: sizes!.widthRatio * 90,
+      width: sizes!.widthRatio * 95,
       child: ElevatedButton(
         onPressed: () {
           // TODO: Add button functionality
@@ -333,7 +342,7 @@ class CommonWidgets {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(6),
           ),
-          padding: EdgeInsets.zero,
+          padding: EdgeInsets.only(right: sizes!.widthRatio * 3),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -345,7 +354,7 @@ class CommonWidgets {
             SizedBox(
               width: sizes!.widthRatio * 4,
             ),
-            MyText.XS(
+            MyText.S(
               'Add To Cart',
               color: AppColors.whiteColor,
             ),
@@ -355,9 +364,9 @@ class CommonWidgets {
     );
   }
 
-  static Widget addToCartLargeButton({Function ?onPressAddToCart}) {
+  static Widget addToCartLargeButton({Function? onPressAddToCart}) {
     return Container(
-      height: sizes!.heightRatio * 50,
+      height: sizes!.heightRatio * 45,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
@@ -437,26 +446,39 @@ class CommonWidgets {
       ),
     );
   }
-  static Widget showCustomDialog(
-      BuildContext context, {
-        required Widget widgetBody
-      }) {
+
+  static Widget showCustomDialog(BuildContext context,
+      {required Widget widgetBody}) {
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 0.3, sigmaY: 0.3),
       child: GestureDetector(
         onTap: () {
           Navigator.pop(context);
         },
-        child: Dialog(
-
+        child: AlertDialog(
           // surfaceTintColor: AppColors.darkGreyColor,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              side:  BorderSide(
-                  color: AppColors.transparentColor,
-                  width: 0.5)),
+              side: const BorderSide(
+                  color: AppColors.transparentColor, width: 0.5)),
           // backgroundColor: AppColors.dialogWhiteColor,
-          child: widgetBody,
+          title: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Icon(
+                Icons.close,
+                color: AppColors.blackTextColor,
+                size: sizes!.height * 0.035,
+              ),
+            ),
+          ),
+          titlePadding: EdgeInsets.only(
+              top: sizes!.heightRatio * 5, right: sizes!.widthRatio * 5),
+          contentPadding: EdgeInsets.zero,
+          content: widgetBody,
         ),
       ),
     );
@@ -629,20 +651,23 @@ class CommonWidgets {
       {required VoidCallback onPress,
       double? width,
       double? height,
+      bool showShadow = true,
       Color? color}) {
     return Container(
       width: width ?? sizes!.widthRatio * 320,
-      height: height ?? sizes!.heightRatio * 45,
+      height: height ?? sizes!.heightRatio * 40,
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(6)),
         color: color ?? AppColors.buttonColor,
         boxShadow: [
-          BoxShadow(
-            color: AppColors.shadowColor,
-            spreadRadius: 2,
-            blurRadius: 10,
-            offset: Offset(0, 1), // changes position of shadow
-          ),
+          showShadow
+              ? BoxShadow(
+                  color: AppColors.shadowColor,
+                  spreadRadius: 2,
+                  blurRadius: 10,
+                  offset: const Offset(0, 1), // changes position of shadow
+                )
+              : const BoxShadow(),
         ],
       ),
       child: TextButton(
@@ -678,10 +703,11 @@ class CommonWidgets {
       {required VoidCallback onPress,
       double? width,
       double? height,
+      Color? textColor,
       Color? color}) {
     return Container(
       width: width ?? sizes!.widthRatio * 320,
-      height: height ?? sizes!.heightRatio * 45,
+      height: height ?? sizes!.heightRatio * 40,
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColors.buttonColor,
@@ -698,10 +724,10 @@ class CommonWidgets {
           //   onPress();
           // }
         },
-        child: MyText.XXXL(
+        child: MyText.L(
           text,
           shadow: false,
-          color: AppColors.appTheme,
+          color: textColor ?? AppColors.whiteColor,
         ),
       ),
     );
@@ -716,7 +742,7 @@ class CommonWidgets {
       Color? buttonBorderColor}) {
     return Container(
       width: width ?? sizes!.widthRatio * 320,
-      height: height ?? sizes!.heightRatio * 45,
+      height: height ?? sizes!.heightRatio * 40,
       decoration: BoxDecoration(
         border: Border.all(
           color: buttonBorderColor ?? AppColors.buttonColor,
@@ -725,12 +751,12 @@ class CommonWidgets {
         borderRadius: const BorderRadius.all(Radius.circular(7)),
         color: color ?? AppColors.buttonColor,
         boxShadow: [
-          BoxShadow(
-            color: AppColors.shadowColor,
-            spreadRadius: 2,
-            blurRadius: 10,
-            offset: Offset(0, 1), // changes position of shadow
-          ),
+          // BoxShadow(
+          //   color: AppColors.shadowColor,
+          //   spreadRadius: 2,
+          //   blurRadius: 10,
+          //   offset: Offset(0, 1), // changes position of shadow
+          // ),
         ],
       ),
       child: Row(
@@ -901,27 +927,29 @@ class CommonWidgets {
   }
 
   //
-  static Widget customTextField({
-    required String hintText,
-    @required TextEditingController? controller,
-    @required TextInputAction? textInputAction,
-    required TextInputType keyboardType,
-    double? width,
-    double? height,
-  }) {
+  static Widget customTextField(
+      {required String hintText,
+      @required TextEditingController? controller,
+      @required TextInputAction? textInputAction,
+      required TextInputType keyboardType,
+      double? width,
+      double? height,
+      bool showShadow = true}) {
     return Container(
-      height: height ?? 50 * getHeightRatio(),
+      height: height ?? 40 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
         borderRadius: BorderRadius.circular(7),
         boxShadow: [
-          BoxShadow(
-            color: AppColors.shadowColor,
-            spreadRadius: 2,
-            blurRadius: 10,
-            offset: Offset(0, 1), // changes position of shadow
-          ),
+          showShadow
+              ? BoxShadow(
+                  color: AppColors.shadowColor,
+                  spreadRadius: 2,
+                  blurRadius: 10,
+                  offset: Offset(0, 1), // changes position of shadow
+                )
+              : const BoxShadow(),
         ],
       ),
       child: TextFormField(
@@ -1018,20 +1046,23 @@ class CommonWidgets {
     required TextInputType keyboardType,
     double? width,
     double? height,
+    bool showShadow = false,
   }) {
     return Container(
-      height: height ?? 50 * getHeightRatio(),
+      height: height ?? 40 * getHeightRatio(),
       decoration: BoxDecoration(
         color: Colors.white,
         border: Border.all(color: AppColors.textFieldBorderColor, width: 1),
         borderRadius: BorderRadius.circular(7),
         boxShadow: [
-          BoxShadow(
-            color: AppColors.shadowColor,
-            spreadRadius: 2,
-            blurRadius: 10,
-            offset: Offset(0, 1), // changes position of shadow
-          ),
+          showShadow
+              ? BoxShadow(
+                  color: AppColors.shadowColor,
+                  spreadRadius: 2,
+                  blurRadius: 10,
+                  offset: const Offset(0, 1), // changes position of shadow
+                )
+              : const BoxShadow(),
         ],
       ),
       child: TextFormField(
@@ -1517,7 +1548,7 @@ class DifferentColorClickableText extends StatelessWidget {
               style: linkStyle,
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  print('Terms of Service"');
+                  onColorTextPressed();
                 }),
         ],
       ),
@@ -1545,10 +1576,15 @@ class DifferentColorClickableText extends StatelessWidget {
     );
   }
 }
+
 class DifferentColorText extends StatelessWidget {
-  const DifferentColorText(
-      {Key? key, required this.firstText, required this.secondText, required this.thirdText, required this.textAlign,})
-      : super(key: key);
+  const DifferentColorText({
+    Key? key,
+    required this.firstText,
+    required this.secondText,
+    required this.thirdText,
+    required this.textAlign,
+  }) : super(key: key);
   final String firstText;
   final String secondText;
   final String thirdText;
@@ -1571,12 +1607,8 @@ class DifferentColorText extends StatelessWidget {
           TextSpan(
               text: secondText,
               style: linkStyle,
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  print('Terms of Service"');
-                }),
+              recognizer: TapGestureRecognizer()..onTap = () {}),
           TextSpan(text: thirdText),
-
         ],
       ),
     );

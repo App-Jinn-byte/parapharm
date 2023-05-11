@@ -184,7 +184,7 @@ class AccountScreenView extends StatelessWidget {
   Widget _textNameRow({required String text, required String textValue}) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       MyText.L(
-        "$text:",
+        "$text",
         bold: true,
       ),
       MyText.L(

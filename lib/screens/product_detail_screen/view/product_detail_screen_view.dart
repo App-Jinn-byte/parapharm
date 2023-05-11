@@ -45,6 +45,7 @@ class ProductDetailScreenView extends StatelessWidget {
                     text: "Product Name", textValue: "Gamme Sebiaclear"),
                 CommonWidgets.divider(),
                 _textNameRow(text: "Price", textValue: "25,000 TND"),
+                CommonWidgets.divider(),
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
@@ -67,8 +68,9 @@ class ProductDetailScreenView extends StatelessWidget {
                 SizedBox(
                   height: sizes!.height * 0.035,
                 ),
-                CommonWidgets.addToCartLargeButton(onPressAddToCart: (){
-                  showConfirmProductDialog(context,productName: 'Caviar Clere Clarify Shampoo 500ml');
+                CommonWidgets.addToCartLargeButton(onPressAddToCart: () {
+                  showConfirmProductDialog(context,
+                      productName: 'Caviar Clere Clarify Shampoo 500ml');
                 }),
                 SizedBox(
                   height: sizes!.height * 0.035,
@@ -114,7 +116,8 @@ class ProductDetailScreenView extends StatelessWidget {
       )
     ]);
   }
-  void showConfirmProductDialog(BuildContext context, {String ?productName}) {
+
+  void showConfirmProductDialog(BuildContext context, {String? productName}) {
     showGeneralDialog(
         barrierColor: Colors.black.withOpacity(0.7),
         //SHADOW EFFECT
@@ -135,9 +138,9 @@ class ProductDetailScreenView extends StatelessWidget {
         pageBuilder: (context, animation, animationTime) {
           return CommonWidgets.showCustomDialog(context,
               widgetBody: Container(
-                height: sizes!.height*0.43,
                 width: sizes!.width,
-                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 decoration: BoxDecoration(
                   color: AppColors.dialogWhiteColor,
                   borderRadius: BorderRadius.circular(7),
@@ -146,26 +149,14 @@ class ProductDetailScreenView extends StatelessWidget {
                       color: AppColors.shadowColor,
                       spreadRadius: 2,
                       blurRadius: 10,
-                      offset: Offset(0, 1), // changes position of shadow
+                      offset: const Offset(0, 1), // changes position of shadow
                     ),
                   ],
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: Icon(
-                          Icons.close,
-                          color: AppColors.blackTextColor,size: sizes!.height*0.04,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: sizes!.height*0.019,),
                     Align(
                         alignment: Alignment.center,
                         child: MyText.XXL(
@@ -176,43 +167,47 @@ class ProductDetailScreenView extends StatelessWidget {
                           bold: true,
                           textAlign: TextAlign.center,
                         )),
-                    SizedBox(height: sizes!.height*0.023,),
-
+                    SizedBox(
+                      height: sizes!.height * 0.023,
+                    ),
                     DifferentColorText(
                       textAlign: TextAlign.center,
                       firstText: "The ",
-                      secondText: productName ?? '' ,
+                      secondText: productName ?? '',
                       thirdText:
-                      ' item has been successfully added to the shopping cart.',
+                          ' item has been successfully added to the shopping cart.',
                     ),
-                    SizedBox(height: sizes!.height*0.02,),
-
+                    SizedBox(
+                      height: sizes!.height * 0.02,
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: CommonWidgets.mainButton("Continue My Shopping",
+                      child: CommonWidgets.mainButton("Continue Shopping",
                           onPress: () {
-                            Navigator.push(
-                                context, SlideRightRoute(page: HomeScreenView()));
-                          }),
+                        Navigator.push(
+                            context, SlideRightRoute(page: HomeScreenView()));
+                      }),
                     ),
-                    SizedBox(height: sizes!.height*0.02,),
-
+                    SizedBox(
+                      height: sizes!.height * 0.02,
+                    ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: CommonWidgets.mainButtonWithBorder("See My Cart",
+                      child: CommonWidgets.mainButtonWithBorder("See Cart",
+                          textColor: AppColors.appTheme,
                           color: AppColors.transparentColor, onPress: () {
-                            Navigator.push(
-                                context, SlideRightRoute(page: CartScreenFirst()));
-                          }),
+                        Navigator.push(context,
+                            SlideRightRoute(page: const CartScreenFirst()));
+                      }),
                     ),
-                    SizedBox(height: sizes!.height*0.02,),
-
+                    SizedBox(
+                      height: sizes!.height * 0.02,
+                    ),
                   ],
                 ),
               ));
         });
   }
-
 
   List<String> bannerImages = [
     Assets.offerBannerDummyImage03,

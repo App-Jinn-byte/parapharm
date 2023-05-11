@@ -42,8 +42,8 @@ class CartScreenFirst extends StatelessWidget {
                     itemCount: 3,
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 7.0),
+                      return const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 7.0),
                         child: ProductCard(
                           productName: 'Baby Care Product',
                           productPrice: '25,000TND',
@@ -88,7 +88,7 @@ class CartScreenFirst extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   MyText.L(
-                    'SHIPPING COST',
+                    'Shipping Cost',
                     color: AppColors.blackColorText,
                   ),
                   MyText.L(
@@ -111,7 +111,7 @@ class CartScreenFirst extends StatelessWidget {
               SizedBox(
                 height: sizes!.height * 0.03,
               ),
-              CommonWidgets.mainButton("Validate My order", onPress: () {
+              CommonWidgets.mainButton("Review and proceed", onPress: () {
                 Navigator.pushReplacement(
                     context, SlideRightRoute(page: SecondCartScreenView()));
               }),
@@ -119,7 +119,8 @@ class CartScreenFirst extends StatelessWidget {
                 height: sizes!.height * 0.03,
               ),
               CommonWidgets.mainButtonWithBorder(
-                "Continue My Shopping",
+                "Continue Shopping",
+                textColor: AppColors.appTheme,
                 onPress: () {
                   Navigator.pushReplacement(
                       context, SlideRightRoute(page: HomeScreenView()));

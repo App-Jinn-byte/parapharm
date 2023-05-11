@@ -4,6 +4,7 @@ import 'package:parapharm/main.dart';
 import 'package:parapharm/res/assets.dart';
 import 'package:parapharm/res/colors.dart';
 import 'package:parapharm/res/res.dart';
+import 'package:parapharm/screens/AuthScreens/create_account/create_account_screen.dart';
 import 'package:parapharm/screens/AuthScreens/forgot_password/forgot_password_screen.dart';
 import 'package:parapharm/screens/home_screen_pages/bottom_navigation_screen/bottom_navigation_screen.dart';
 import 'package:parapharm/widgets/common_widgets.dart';
@@ -34,7 +35,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(
                 height: sizes!.height * 0.03,
               ),
-              Image.asset(Assets.appColorLogo),
+              CommonWidgets.pppColorLogo(),
               SizedBox(
                 height: sizes!.height * 0.03,
               ),
@@ -88,7 +89,7 @@ class LoginScreen extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: CommonWidgets.mainTextButton("Forgot Password?",
                       onPress: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context, SlideRightRoute(page: ForgotPasswordScreen()));
                   })),
               SizedBox(
@@ -101,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                       context, SlideRightRoute(page: BottomNavigationScreen()));
                 },
                 width: sizes!.width,
-                height: sizes!.height * 0.07,
+                height: sizes!.heightRatio * 40,
               ),
               Row(
                 children: [
@@ -144,12 +145,16 @@ class LoginScreen extends StatelessWidget {
               ),
               Spacer(),
               DifferentColorClickableText(
-                onColorTextPressed: () {},
+                onColorTextPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => CreateAccountScreen(),
+                  ));
+                },
                 text: "Don't have an account? ",
                 textButton: 'SignUp',
               ),
               SizedBox(
-                height: sizes!.height * 0.01,
+                height: sizes!.height * 0.03,
               ),
             ],
           ),
@@ -157,5 +162,4 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
-
 }

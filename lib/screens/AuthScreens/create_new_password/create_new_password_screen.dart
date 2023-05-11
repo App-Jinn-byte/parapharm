@@ -13,14 +13,17 @@ class CreateNewPasswordScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController emailOrNumberController = TextEditingController();
-    myFontRatio = MediaQuery.of(context).textScaleFactor>1.0?1.0:MediaQuery.of(context).size.width/800;
+    TextEditingController passwordController = TextEditingController();
+    TextEditingController confirmPasswordController = TextEditingController();
+    myFontRatio = MediaQuery.of(context).textScaleFactor > 1.0
+        ? 1.0
+        : MediaQuery.of(context).size.width / 800;
     initializeResources(context: context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: sizes!.width*0.08),
+          padding: EdgeInsets.symmetric(horizontal: sizes!.width * 0.08),
           height: sizes?.height,
           width: sizes?.width,
           decoration: BoxDecoration(
@@ -28,29 +31,72 @@ class CreateNewPasswordScreen extends StatelessWidget {
           ),
           child: Column(
             children: [
-              SizedBox(height: sizes!.height*0.03,),
-              Image.asset(Assets.appColorLogo),
-              SizedBox(height: sizes!.height*0.03,),
+              SizedBox(
+                height: sizes!.height * 0.03,
+              ),
+              CommonWidgets.pppColorLogo(),
+              SizedBox(
+                height: sizes!.height * 0.03,
+              ),
               Align(
                   alignment: Alignment.centerLeft,
-                  child: MyText.XXL("Create New Password", arialFont:true, shadow: false,color: AppColors.blackTextColor,bold: true,)),
-              SizedBox(height: sizes!.height*0.017,),
+                  child: MyText.XXL(
+                    "Create New Password",
+                    arialFont: true,
+                    shadow: false,
+                    color: AppColors.blackTextColor,
+                    bold: true,
+                  )),
+              SizedBox(
+                height: sizes!.height * 0.017,
+              ),
               Align(
                   alignment: Alignment.centerLeft,
-                  child: MyText.M("Create Password", arialFont:true, shadow: false, color: AppColors.darkGreyTextColor,)),
-              SizedBox(height: sizes!.height*0.012,),
-
-              CommonWidgets.passwordTextField( hintText: 'Enter Password', controller: emailOrNumberController, keyboardType: TextInputType.name, onClick: (){}),
-              SizedBox(height: sizes!.height*0.017,),
+                  child: MyText.M(
+                    "Create Password",
+                    arialFont: true,
+                    shadow: false,
+                    color: AppColors.darkGreyTextColor,
+                  )),
+              SizedBox(
+                height: sizes!.height * 0.012,
+              ),
+              CommonWidgets.passwordTextField(
+                  hintText: 'Enter Password',
+                  controller: passwordController,
+                  keyboardType: TextInputType.name,
+                  onClick: () {}),
+              SizedBox(
+                height: sizes!.height * 0.017,
+              ),
               Align(
                   alignment: Alignment.centerLeft,
-                  child: MyText.M("Confirm Password", arialFont:true, shadow: false, color: AppColors.darkGreyTextColor,)),
-              SizedBox(height: sizes!.height*0.012,),
-              CommonWidgets.passwordTextField(hintText: 'Enter Password', controller: emailOrNumberController, keyboardType: TextInputType.name, onClick: (){} ),
-              SizedBox(height: sizes!.height*0.04,),
-              CommonWidgets.mainButton("Reset Password", onPress: (){
-                Navigator.push(context, SlideRightRoute(page: PasswordChangedScreen()));
-              }, width: sizes!.width, height: sizes!.height*0.07,),
+                  child: MyText.M(
+                    "Confirm Password",
+                    arialFont: true,
+                    shadow: false,
+                    color: AppColors.darkGreyTextColor,
+                  )),
+              SizedBox(
+                height: sizes!.height * 0.012,
+              ),
+              CommonWidgets.passwordTextField(
+                  hintText: 'Confirm Password',
+                  controller: confirmPasswordController,
+                  keyboardType: TextInputType.name,
+                  onClick: () {}),
+              SizedBox(
+                height: sizes!.height * 0.04,
+              ),
+              CommonWidgets.mainButton(
+                "Reset Password",
+                onPress: () {
+                  Navigator.push(
+                      context, SlideRightRoute(page: PasswordChangedScreen()));
+                },
+                width: sizes!.width,
+                height: sizes!.height * 0.07,
+              ),
             ],
           ),
         ),

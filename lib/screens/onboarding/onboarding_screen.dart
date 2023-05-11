@@ -14,42 +14,89 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    myFontRatio = MediaQuery.of(context).textScaleFactor>1.0?1.0:MediaQuery.of(context).size.width/800;
+    myFontRatio = MediaQuery.of(context).textScaleFactor > 1.0
+        ? 1.0
+        : MediaQuery.of(context).size.width / 800;
     initializeResources(context: context);
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: sizes!.width*0.08),
+          // padding: EdgeInsets.symmetric(horizontal: sizes!.width * 0.08),
           height: sizes?.height,
           width: sizes?.width,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(Assets.onboardingBg),
-                      fit: BoxFit.fitWidth
-              )
-          ),
-          child: Column(
-            children: [
-              SizedBox(height: sizes!.height*0.02,),
-
-              Align(
-                  alignment: Alignment.centerRight,
-                  child: CommonWidgets.mainTextButton('Skip>', onPress: () {},underline: true)),
-              Spacer(),
-              Image.asset(Assets.appLogo),
-              SizedBox(height: sizes!.height*0.03,),
-              MyText.XXL("Welcome to our store", arialFont:true, shadow: false,color: AppColors.whiteColor,),
-              SizedBox(height: sizes!.height*0.005,),
-              MyText.M("Get your groceries in as fast as one hour", arialFont:true, shadow: false, color: AppColors.greyTextColor,),
-              SizedBox(height: sizes!.height*0.04,),
-              CommonWidgets.mainButton("Login", onPress: (){
-                Navigator.pushReplacement(context, SlideRightRoute(page: LoginScreen()));}, width: sizes!.width*0.85, height: sizes!.height*0.07,),
-              SizedBox(height: sizes!.height*0.02,),
-              CommonWidgets.mainButtonWithBorder("Create Account", onPress: (){
-                Navigator.pushReplacement(context, SlideRightRoute(page: const CreateAccountScreen()));
-              }, width: sizes!.width*0.85, height: sizes!.height*0.07,color: AppColors.transparentColor),
-              SizedBox(height: sizes!.height*0.05,),
-            ],
+                  fit: BoxFit.fitWidth)),
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromRGBO(0, 0, 0, 0.89),
+                  Color.fromRGBO(0, 0, 0, 0),
+                ],
+                begin: Alignment.bottomCenter,
+                end: Alignment.topCenter,
+              ),
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: sizes!.height * 0.02,
+                ),
+                Align(
+                    alignment: Alignment.centerRight,
+                    child: CommonWidgets.mainTextButton('Skip>',
+                        onPress: () {}, underline: true)),
+                Spacer(),
+                Image.asset(Assets.appLogo),
+                SizedBox(
+                  height: sizes!.height * 0.03,
+                ),
+                MyText.XXL(
+                  "Welcome to our store",
+                  arialFont: true,
+                  shadow: false,
+                  color: AppColors.whiteColor,
+                ),
+                SizedBox(
+                  height: sizes!.height * 0.005,
+                ),
+                MyText.M(
+                  "Get your groceries in as fast as one hour",
+                  arialFont: true,
+                  shadow: false,
+                  color: AppColors.greyTextColor,
+                ),
+                SizedBox(
+                  height: sizes!.height * 0.04,
+                ),
+                CommonWidgets.mainButton(
+                  "Login",
+                  showShadow: false,
+                  onPress: () {
+                    Navigator.pushReplacement(
+                        context, SlideRightRoute(page: const LoginScreen()));
+                  },
+                  width: sizes!.width * 0.85,
+                  height: sizes!.heightRatio * 40,
+                ),
+                SizedBox(
+                  height: sizes!.height * 0.02,
+                ),
+                CommonWidgets.mainButtonWithBorder("Create Account",
+                    onPress: () {
+                  Navigator.pushReplacement(context,
+                      SlideRightRoute(page: const CreateAccountScreen()));
+                },
+                    width: sizes!.width * 0.85,
+                    height: sizes!.heightRatio * 40,
+                    color: AppColors.transparentColor),
+                SizedBox(
+                  height: sizes!.height * 0.05,
+                ),
+              ],
+            ),
           ),
         ),
       ),
